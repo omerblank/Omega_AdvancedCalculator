@@ -190,3 +190,4 @@ def single_operand(operand, operator: str):
 
     elif operator == '!':
         return factorial(operand)
+#check!
