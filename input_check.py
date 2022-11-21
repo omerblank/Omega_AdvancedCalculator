@@ -1,16 +1,10 @@
 from my_exceptions import *
-
-# global variables
-single_operand = ['~', '!']
-two_operands = ['+', '-', '*', '/', '%', '^', '$', '&', '@']
-operators_priority = {'-': 1, '+': 1, '*': 2, '/': 2, '^': 3, '%': 4, '$': 5, '&': 5, '@': 5, '~': 6, '!': 6}
-operators = ['+', '-', '*', '/', '%', '^', '$', '&', '@', '~', '!', '(', ')']
-
+from constants import *
 
 def is_operator(operator: str) -> bool:
     if type(operator) != str:
         raise TypeError("Operator can only be from type str!")
-    return operators.count(operator) == 1
+    return OPERATORS.count(operator) == 1
 
 
 def is_parenthesis(operator: str) -> bool:
@@ -95,4 +89,3 @@ def pre_calculation(arithmetic_expression: str) -> str:
 def calculate(arithmetic_expression: str):
     result = 0
     pre_calculation(arithmetic_expression)
-
