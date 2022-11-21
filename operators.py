@@ -3,9 +3,6 @@ from calculations import *
 
 
 class Operator(object):
-    def basic_validation(self):
-        pass
-
     def validate(self, operator_validation):
         pass
 
@@ -16,9 +13,6 @@ class Operator(object):
 class OneOperand(Operator):
     def __init__(self, operand):
         self.operand = operand
-
-    def basic_validation(self):
-        validate_operand_type(self.operand)
 
     def validate(self, operator_validation):
         return one_operand_validation(operator_validation, self.operand)
@@ -32,10 +26,6 @@ class TwoOperands(Operator):
         self.operand1 = operand1
         self.operand2 = operand2
 
-    def basic_validation(self):
-        validate_operand_type(self.operand1)
-        validate_operand_type(self.operand2)
-
     def validate(self, operator_validation):
         return two_operands_validation(operator_validation, self.operand1, self.operand2)
 
@@ -46,7 +36,7 @@ class TwoOperands(Operator):
 class Addition(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
+        super().validate(validate_addition)
 
     def calculate(self):
         return super().calculate(calculate_addition)
@@ -55,7 +45,7 @@ class Addition(TwoOperands):
 class Subtraction(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
+        super().validate(validate_subtraction)
 
     def calculate(self):
         return super().calculate(calculate_subtraction)
@@ -64,7 +54,7 @@ class Subtraction(TwoOperands):
 class Multiplication(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
+        super().validate(validate_multiplication)
 
     def calculate(self):
         return super().calculate(calculate_multiplication)
@@ -73,7 +63,6 @@ class Multiplication(TwoOperands):
 class Division(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
         super().validate(validate_division)
 
     def calculate(self):
@@ -83,7 +72,6 @@ class Division(TwoOperands):
 class Power(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
         super().validate(validate_power)
 
     def calculate(self):
@@ -93,7 +81,6 @@ class Power(TwoOperands):
 class Modulo(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
         super().validate(validate_modulo)
 
     def calculate(self):
@@ -103,7 +90,6 @@ class Modulo(TwoOperands):
 class Maximum(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
         super().validate(validate_maximum)
 
     def calculate(self):
@@ -113,7 +99,6 @@ class Maximum(TwoOperands):
 class Minimum(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
         super().validate(validate_minimum)
 
     def calculate(self):
@@ -123,7 +108,7 @@ class Minimum(TwoOperands):
 class Average(TwoOperands):
     def __init__(self, operand1, operand2):
         super().__init__(operand1, operand2)
-        super().basic_validation()
+        super().validate(validate_average)
 
     def calculate(self):
         return super().calculate(calculate_average)
@@ -132,7 +117,7 @@ class Average(TwoOperands):
 class Negation(OneOperand):
     def __init__(self, operand):
         super().__init__(operand)
-        super().basic_validation()
+        super().validate(validate_negation)
 
     def calculate(self):
         return super().calculate(calculate_negation)
@@ -141,7 +126,6 @@ class Negation(OneOperand):
 class Factorial(OneOperand):
     def __init__(self, operand):
         super().__init__(operand)
-        super().basic_validation()
         super().validate(validate_factorial)
 
     def calculate(self):

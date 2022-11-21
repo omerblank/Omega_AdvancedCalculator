@@ -1,6 +1,7 @@
 from my_exceptions import *
 from constants import *
 
+
 def is_operator(operator: str) -> bool:
     if type(operator) != str:
         raise TypeError("Operator can only be from type str!")
