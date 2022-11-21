@@ -1,6 +1,4 @@
-from math import pow
 from validations import *
-from my_operators import *
 from calculations import *
 
 
