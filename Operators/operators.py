@@ -1,5 +1,5 @@
-from validations import *
-from calculations import *
+from Operators.validations import *
+from Operators.calculations import *
 
 
 class Operator(object):
@@ -130,3 +130,15 @@ class Factorial(OneOperand):
 
     def calculate(self):
         return super().calculate(calculate_factorial)
+
+
+class LeftBracket(OneOperand):
+    def __init__(self, operand):
+        super().__init__(operand)
+        super().validate(validate_left_bracket)
+
+
+class RightBracket(OneOperand):
+    def __init__(self, operand):
+        super().__init__(operand)
+        super().validate(validate_right_bracket())

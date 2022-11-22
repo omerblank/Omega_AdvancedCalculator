@@ -1,4 +1,4 @@
-from my_operators import *
+from Operators.my_operators import *
 from math import pow
 
 
@@ -108,7 +108,6 @@ def calculate_factorial(operand):
     :return: operand!
     """
     return factorial(operand)
-
 
 def two_operands_calculation(operator_calculation, operand1, operand2):
     """

@@ -1,5 +1,4 @@
 from my_exceptions import *
-from constants import *
 
 
 def is_operator(operator: str) -> bool:

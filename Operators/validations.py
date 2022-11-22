@@ -146,6 +146,14 @@ def validate_factorial(operand):
         raise ValueError("Factorial is legal for natural numbers only!")
 
 
+def validate_left_bracket(operand):
+    validate_operand_type(operand)
+
+
+def validate_right_bracket(operand):
+    validate_operand_type(operand)
+
+
 def two_operands_validation(operator_validation, operand1, operand2):
     """
     the function doing a generic validation on operand1 and operand2
