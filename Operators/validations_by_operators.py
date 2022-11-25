@@ -1,4 +1,4 @@
-from my_exceptions import *
+from MyConstantsAndExceptions.my_exceptions import *
 
 
 def validate_operand_type(operand) -> bool:
@@ -142,7 +142,7 @@ def validate_factorial(operand):
     :return: None if the operation is valid, Exception if not
     """
     validate_operand_type(operand)
-    if (not operand.is_integer()) or operand < 0:
+    if (type(operand) != int and not operand.is_integer()) or operand < 0:
         raise ValueError("Factorial is legal for natural numbers only!")
 
 

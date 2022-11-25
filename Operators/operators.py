@@ -1,5 +1,5 @@
-from Operators.validations import *
-from Operators.calculations import *
+from Operators.validations_by_operators import *
+from Operators.calculations_by_operators import *
 
 
 class Operator(object):

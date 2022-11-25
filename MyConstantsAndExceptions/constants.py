@@ -6,3 +6,4 @@ OPERATORS_PRIORITY = {'(': 0, '+': 1, '-': 1, '*': 2, '/': 2, '^': 3, '%': 4, '$
 OPERATORS = ['+', '-', '*', '/', '%', '^', '$', '&', '@', '~', '!', '(', ')']
 OPERATIONS = {'+': Addition, '-': Subtraction, '*': Multiplication, '/': Division, '%': Modulo, '^': Power,
               '$': Maximum, '&': Minimum, '@': Average, '~': Negation, '!': Factorial}
+OPERANDS_FOR_OPERATOR = {OneOperand: 1, TwoOperands: 2}
