@@ -1,9 +1,10 @@
-from Operators.validations_by_operators import *
-from Operators.calculations_by_operators import *
+from Operators.operators_validations import *
+from Operators.operators_calculations import *
+from ConstantsAndExceptions import *
 
 
 class Operator(object):
-    def validate(self, operator_validation):
+    def validate(self, validation):
         pass
 
     def calculate(self, operator_calculation):
@@ -11,31 +12,33 @@ class Operator(object):
 
 
 class OneOperand(Operator):
-    def __init__(self, operand):
+    def __init__(self, left, right, operand):
+        self.left = left
+        self.right = right
         self.operand = operand
 
-    def validate(self, operator_validation):
-        return one_operand_validation(operator_validation, self.operand)
+    def validate(self, validation):
+        return operator_validation(validation, self.left, self.right)
 
     def calculate(self, operator_calculation):
         return one_operand_calculation(operator_calculation, self.operand)
 
 
 class TwoOperands(Operator):
-    def __init__(self, operand1, operand2):
-        self.operand1 = operand1
-        self.operand2 = operand2
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
 
-    def validate(self, operator_validation):
-        return two_operands_validation(operator_validation, self.operand1, self.operand2)
+    def validate(self, validation):
+        return operator_validation(validation, self.left, self.right)
 
     def calculate(self, operator_calculation):
-        return two_operands_calculation(operator_calculation, self.operand1, self.operand2)
+        return two_operands_calculation(operator_calculation, self.left, self.right)
 
 
 class Addition(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_addition)
 
     def calculate(self):
@@ -43,8 +46,8 @@ class Addition(TwoOperands):
 
 
 class Subtraction(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_subtraction)
 
     def calculate(self):
@@ -52,8 +55,8 @@ class Subtraction(TwoOperands):
 
 
 class Multiplication(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_multiplication)
 
     def calculate(self):
@@ -61,8 +64,8 @@ class Multiplication(TwoOperands):
 
 
 class Division(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_division)
 
     def calculate(self):
@@ -70,8 +73,8 @@ class Division(TwoOperands):
 
 
 class Power(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_power)
 
     def calculate(self):
@@ -79,8 +82,8 @@ class Power(TwoOperands):
 
 
 class Modulo(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_modulo)
 
     def calculate(self):
@@ -88,8 +91,8 @@ class Modulo(TwoOperands):
 
 
 class Maximum(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_maximum)
 
     def calculate(self):
@@ -97,8 +100,8 @@ class Maximum(TwoOperands):
 
 
 class Minimum(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_minimum)
 
     def calculate(self):
@@ -106,8 +109,8 @@ class Minimum(TwoOperands):
 
 
 class Average(TwoOperands):
-    def __init__(self, operand1, operand2):
-        super().__init__(operand1, operand2)
+    def __init__(self, left, right):
+        super().__init__(left, right)
         super().validate(validate_average)
 
     def calculate(self):
@@ -115,8 +118,8 @@ class Average(TwoOperands):
 
 
 class Negation(OneOperand):
-    def __init__(self, operand):
-        super().__init__(operand)
+    def __init__(self, left, right):
+        super().__init__(left, right, right)
         super().validate(validate_negation)
 
     def calculate(self):
@@ -124,8 +127,8 @@ class Negation(OneOperand):
 
 
 class Factorial(OneOperand):
-    def __init__(self, operand):
-        super().__init__(operand)
+    def __init__(self, left, right):
+        super().__init__(left, right, left)
         super().validate(validate_factorial)
 
     def calculate(self):
@@ -133,21 +136,9 @@ class Factorial(OneOperand):
 
 
 class DigitsSum(OneOperand):
-    def __init__(self, operand):
-        super().__init__(operand)
+    def __init__(self, left, right):
+        super().__init__(left, right, left)
         super().validate(validate_digits_sum)
 
     def calculate(self):
         return super().calculate(calculate_digits_sum)
-
-
-class LeftBracket(OneOperand):
-    def __init__(self, operand):
-        super().__init__(operand)
-        super().validate(validate_left_bracket)
-
-
-class RightBracket(OneOperand):
-    def __init__(self, operand):
-        super().__init__(operand)
-        super().validate(validate_right_bracket())

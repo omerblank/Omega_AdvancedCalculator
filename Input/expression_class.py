@@ -1,5 +1,5 @@
-from InputCalculation.calculate_expression import *
-from InputCalculation.input_validations import *
+from Input.input_calculations import *
+from Input.input_validations import *
 
 
 class Expression(object):

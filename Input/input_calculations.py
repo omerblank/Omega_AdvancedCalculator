@@ -1,6 +1,8 @@
-from MyConstantsAndExceptions.constants import *
+from ConstantsAndExceptions.constants import *
+from Input.input_validations import *
 
 
+# utility functions
 def digits_to_number(arithmetic_expression: str, index: int):
     """
     the function gets an expression and returns a number from the given index in the expression
@@ -22,6 +24,7 @@ def digits_to_number(arithmetic_expression: str, index: int):
 
 
 def operate_and_push(operators_stack: list, operands_stack: list):
+    # todo: fix calculations, according to receiving left and right, and not only one operand
     """
     the function gets an operators stack and an operands stack, pops the last operator from the stack
      and according to its type, pops operands, calculates the operation and push it to the operands stack
@@ -29,18 +32,19 @@ def operate_and_push(operators_stack: list, operands_stack: list):
     :param operands_stack: a stack of operands
     :return: None
     """
-    if OPERATIONS.get(operators_stack[-1]).__base__ == OneOperand:
+    if OPERATORS.get(operators_stack[-1]).__base__ == OneOperand:
         operand = operands_stack.pop()
         operator = operators_stack.pop()
-        operands_stack.append(OPERATIONS.get(operator)(operand).calculate())
+        operands_stack.append(OPERATORS.get(operator)(operand).calculate())
 
-    elif OPERATIONS.get(operators_stack[-1]).__base__ == TwoOperands:
+    elif OPERATORS.get(operators_stack[-1]).__base__ == TwoOperands:
         operand2 = operands_stack.pop()
         operand1 = operands_stack.pop()
         operator = operators_stack.pop()
-        operands_stack.append(OPERATIONS.get(operator)(operand1, operand2).calculate())
+        operands_stack.append(OPERATORS.get(operator)(operand1, operand2).calculate())
 
 
+# main function
 def calculate(arithmetic_expression: str) -> str:
     """
     the function gets an arithmetic expression and calculates it
@@ -57,14 +61,17 @@ def calculate(arithmetic_expression: str) -> str:
             symbol, index = digits_to_number(arithmetic_expression, index)
             operands_stack.append(symbol)
         elif symbol == '(':
+            validate_bracket_in_expression(arithmetic_expression, index)
             operators_stack.append(symbol)
         elif symbol == ')':
+            validate_bracket_in_expression(arithmetic_expression, index)
             # loop for scanning the whole expression in the brackets
             while operators_stack.__len__() > 0 and operators_stack[-1] != '(':
                 operate_and_push(operators_stack, operands_stack)
             # get rid of (
             operators_stack.pop()
         else:
+            validate_operator_in_expression(arithmetic_expression, index)
             # loop for adding the new operator to the correct index in the stack
             while operators_stack.__len__() > 0 and OPERATORS_PRIORITY.get(symbol) < OPERATORS_PRIORITY.get(
                     operators_stack[-1]):
