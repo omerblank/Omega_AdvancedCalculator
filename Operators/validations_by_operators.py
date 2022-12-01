@@ -146,6 +146,15 @@ def validate_factorial(operand):
         raise ValueError("Factorial is legal for natural numbers only!")
 
 
+def validate_digits_sum(operand):
+    """
+    the function check if digits sum operation is valid
+    :param operand: the operand
+    :return: None if the operation is valid, Exception if not
+    """
+    validate_operand_type(operand)
+
+
 def validate_left_bracket(operand):
     validate_operand_type(operand)
 

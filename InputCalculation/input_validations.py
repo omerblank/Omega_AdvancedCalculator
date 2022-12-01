@@ -1,19 +1,13 @@
 from MyConstantsAndExceptions.my_exceptions import *
+from MyConstantsAndExceptions.constants import *
 
 
-def is_operator(operator: str) -> bool:
-    if type(operator) != str:
-        raise TypeError("Operator can only be from type str!")
-    return OPERATORS.count(operator) == 1
+def is_operator(operator: str):
+    if OPERATORS.count(operator) == 0:
+        raise OperatorError(f"{operator} is not a legal operator in Omega calculator!")
 
 
-def is_parenthesis(operator: str) -> bool:
-    if type(operator) != str:
-        raise TypeError("Operator can only be from type str!")
-    return operator == '(' or operator == ')'
-
-
-def handle_parenthesis(arithmetic_expression: str) -> bool:
+def handle_parenthesis(arithmetic_expression: str):
     if arithmetic_expression.count('(') != arithmetic_expression.count(')'):
         raise ParenthesisError("'(' amount should be equal to ')' amount!")
     if arithmetic_expression.count('(') > 0 and arithmetic_expression.count('(') > 0:
@@ -25,7 +19,6 @@ def handle_parenthesis(arithmetic_expression: str) -> bool:
                 raise ParenthesisError("Arithmetic expression can not end with '('!")
             if arithmetic_expression[i + 1] == ')':
                 raise ParenthesisError("'()' sequence is illegal!")
-    return True
 
 
 def handle_operands_and_operators(arithmetic_expression: str) -> bool:
@@ -68,24 +61,3 @@ def reduce_minuses(arithmetic_expression: str) -> str:
     return new_expression
 
 
-def pre_calculation(arithmetic_expression: str) -> str:
-    if type(arithmetic_expression) != str:
-        raise TypeError("The arithmetic expression should be received as a string")
-
-    # handle spaces and tabs
-    arithmetic_expression = arithmetic_expression.replace(' ', '')
-
-    # handle parenthesis
-    handle_parenthesis(arithmetic_expression)
-
-    # handle operands and operators
-    handle_operands_and_operators(arithmetic_expression)
-
-    # reduce minuses
-    arithmetic_expression = reduce_minuses(arithmetic_expression)
-    return arithmetic_expression
-
-
-def calculate(arithmetic_expression: str):
-    result = 0
-    pre_calculation(arithmetic_expression)

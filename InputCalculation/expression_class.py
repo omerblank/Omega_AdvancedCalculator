@@ -1,4 +1,5 @@
 from InputCalculation.calculate_expression import *
+from InputCalculation.input_validations import *
 
 
 class Expression(object):
@@ -6,7 +7,8 @@ class Expression(object):
         self.expression = arithmetic_expression
 
     def handle_expression(self):
-        pass
+        self.expression = reduce_minuses(self.expression)
+        print(self.expression)
 
     def calculate(self):
         return calculate(self.expression)

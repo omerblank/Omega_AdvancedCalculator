@@ -132,6 +132,15 @@ class Factorial(OneOperand):
         return super().calculate(calculate_factorial)
 
 
+class DigitsSum(OneOperand):
+    def __init__(self, operand):
+        super().__init__(operand)
+        super().validate(validate_digits_sum)
+
+    def calculate(self):
+        return super().calculate(calculate_digits_sum)
+
+
 class LeftBracket(OneOperand):
     def __init__(self, operand):
         super().__init__(operand)

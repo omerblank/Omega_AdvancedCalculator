@@ -109,6 +109,16 @@ def calculate_factorial(operand):
     """
     return factorial(operand)
 
+
+def calculate_digits_sum(operand):
+    """
+    the function doing digits sum operation on operand
+    :param operand: the operand
+    :return: operand#
+    """
+    return digits_sum(operand)
+
+
 def two_operands_calculation(operator_calculation, operand1, operand2):
     """
     the function doing a generic calculation on operand1 and operand2
