@@ -1,5 +1,5 @@
 from ConstantsAndExceptions.constants import *
-from ConstantsAndExceptions.exceptions import *
+from ConstantsAndExceptions.exceptions import BracketsError
 
 
 def validate_left_bracket(left, right):

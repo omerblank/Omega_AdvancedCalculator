@@ -1,5 +1,4 @@
 from Operators.my_operators import *
-from math import pow
 
 
 def calculate_addition(operand1, operand2):

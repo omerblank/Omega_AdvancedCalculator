@@ -1,5 +1,5 @@
-from ConstantsAndExceptions.constants import *
 from Input.input_validations import *
+from Operators.operators_classes import *
 
 
 # utility functions
@@ -35,7 +35,10 @@ def operate_and_push(operators_stack: list, operands_stack: list):
     if OPERATORS.get(operators_stack[-1]).__base__ == OneOperand:
         operand = operands_stack.pop()
         operator = operators_stack.pop()
-        operands_stack.append(OPERATORS.get(operator)(operand).calculate())
+        if ONE_OPERAND.get(operator) == "right":
+            operands_stack.append(OPERATORS.get(operator)(operand, None).calculate())
+        if ONE_OPERAND.get(operator) == "left":
+            operands_stack.append(OPERATORS.get(operator)(None, operand).calculate())
 
     elif OPERATORS.get(operators_stack[-1]).__base__ == TwoOperands:
         operand2 = operands_stack.pop()
@@ -51,6 +54,9 @@ def calculate(arithmetic_expression: str) -> str:
     :param arithmetic_expression: the arithmetic expression
     :return: the result of the expression
     """
+    arithmetic_expression = reduce_spaces(arithmetic_expression)
+    arithmetic_expression = reduce_minuses(arithmetic_expression)
+    arithmetic_expression = signed_operand(arithmetic_expression)
     operands_stack = []
     operators_stack = []
     index = 0

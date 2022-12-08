@@ -1,6 +1,5 @@
-from Operators.operators_validations import *
 from Operators.operators_calculations import *
-from ConstantsAndExceptions import *
+from Operators.operators_validations import *
 
 
 class Operator(object):
@@ -142,3 +141,6 @@ class DigitsSum(OneOperand):
 
     def calculate(self):
         return super().calculate(calculate_digits_sum)
+
+
+

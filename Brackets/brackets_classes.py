@@ -20,3 +20,6 @@ class RoundRightBracket(Bracket):
     def __init__(self, left, right):
         super().__init__(left, right)
         super().validate(validate_right_bracket)
+
+
+BRACKETS = {'(': RoundLeftBracket, ')': RoundRightBracket}

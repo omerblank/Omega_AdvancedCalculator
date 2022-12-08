@@ -1,42 +1,6 @@
-from ConstantsAndExceptions.exceptions import *
+from Brackets.brackets_classes import *
 from ConstantsAndExceptions.constants import *
-
-
-# def handle_parenthesis(arithmetic_expression: str):
-#     if arithmetic_expression.count('(') != arithmetic_expression.count(')'):
-#         raise BracketsError("'(' amount should be equal to ')' amount!")
-#     if arithmetic_expression.count('(') > 0 and arithmetic_expression.count('(') > 0:
-#         if arithmetic_expression.index(')') < arithmetic_expression.index('('):
-#             raise BracketsError("')' can not come before '('!")
-#     for i in range(len(arithmetic_expression)):
-#         if arithmetic_expression[i] == '(':
-#             if i + 1 == len(arithmetic_expression):
-#                 raise BracketsError("Arithmetic expression can not end with '('!")
-#             if arithmetic_expression[i + 1] == ')':
-#                 raise BracketsError("'()' sequence is illegal!")
-
-
-# def handle_operands_and_operators(arithmetic_expression: str) -> bool:
-#     # check if there are invalid operators or operands
-#     for i in range(len(arithmetic_expression)):
-#         if not arithmetic_expression[i].isdigit():
-#             if (not arithmetic_expression[i].isalpha()) and not is_operator(arithmetic_expression[i]):
-#                 raise OperatorError(f"{arithmetic_expression[i]} is an illegal operator")
-#             elif arithmetic_expression[i].isalpha():
-#                 raise OperandError("Alphabetical input is illegal in Omega Calculator!")
-#
-#         # check if the expression ends with an illegal operator
-#         if i == len(arithmetic_expression) - 1:
-#             if not arithmetic_expression[i].isdigit() and arithmetic_expression[i] != '!' and \
-#                     arithmetic_expression[i] != ')':
-#                 raise OperatorError(f"The expression can not end with operator: {arithmetic_expression[i]}")
-#
-#         if i < len(arithmetic_expression) - 1 and is_operator(arithmetic_expression[i]):
-#             if is_operator(arithmetic_expression[i + 1]) and not is_parenthesis(arithmetic_expression[i + 1]) and \
-#                     arithmetic_expression[i + 1] != '-' and \
-#                     arithmetic_expression[i + 1] != '~':
-#                 raise OperatorError("Invalid operators sequence!")
-#     return True
+from Operators.operators_classes import *
 
 
 def reduce_minuses(arithmetic_expression: str) -> str:
@@ -54,23 +18,23 @@ def reduce_minuses(arithmetic_expression: str) -> str:
         elif arithmetic_expression[i].isdigit() and count_minus > 0:
             if count_minus % 2 == 0:
                 new_expression = new_expression.__add__(arithmetic_expression[i])
+                count_minus = 0
             else:
                 new_expression = new_expression.__add__('-' + arithmetic_expression[i])
+                count_minus = 0
         else:
             new_expression = new_expression.__add__(arithmetic_expression[i])
             count_minus = 0
     return new_expression
 
 
-def validate_and_reduce_spaces(arithmetic_expression: str) -> str:
+def reduce_spaces(arithmetic_expression: str) -> str:
     """
-    the function validates spaces locations and reduces them if their locations are valid
+    the function validates spaces locations and reduces them
     :param arithmetic_expression: the received expression
-    :return: Exception if spaces are not valid, if they are, returns the expression without spaces
-             invalid spaces example: 3 4+5
-             valid spaces example: 34 + 5
+    :return: the expression without spaces
     """
-    pass
+    return arithmetic_expression.replace(' ', '')
 
 
 def validate_operator_in_expression(arithmetic_expression: str, index: int):
@@ -118,3 +82,29 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
         BRACKETS.get(bracket)(arithmetic_expression[index - 1], None)
     else:
         BRACKETS.get(bracket)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
+
+
+def is_signed(arithmetic_expression: str, index: int):
+    minus = arithmetic_expression[index]
+    if index == len(arithmetic_expression) - 1:
+        raise OperatorError(f"{minus} can't close an expression!")
+    if index == 0 and validate_right(arithmetic_expression[index + 1]):
+        return True
+    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index-1] == '(' or ONE_OPERAND.get(
+            arithmetic_expression[index - 1]) == "left" and validate_right(arithmetic_expression[index + 1]):
+        return True
+    return False
+
+
+def signed_operand(arithmetic_expression: str):
+    new_expression = ""
+    index = 0
+    while index < len(arithmetic_expression):
+        if arithmetic_expression[index] == '-':
+            if is_signed(arithmetic_expression, index):
+                new_expression = new_expression.__add__('~')
+                index += 1
+                continue
+        new_expression = new_expression.__add__(arithmetic_expression[index])
+        index += 1
+    return new_expression

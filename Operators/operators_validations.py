@@ -1,18 +1,31 @@
-from ConstantsAndExceptions.constants import *
+# from ConstantsAndExceptions.constants import OPERATORS
 from ConstantsAndExceptions.exceptions import *
 
 
-def validate_operand_type(operand) -> bool:
+def validate_left(operand) -> bool:
     """
-    the function checks if operand is a number
-    :param operand: the operand
-    :return: True if the operand is a number
-             except ValueError if the operand is not a number
+    the function checks if the left char is operand
+    :param operand: the char
+    :return: True if the operand is an operand
+             except ValueError if the char is not an operand
     """
     try:
-        return type(int(operand)) == int or type(float(operand)) == float
+        return type(int(operand)) == int or type(float(operand)) == float or operand == ')'
     except ValueError:
-        print(f"{operand} should be an integer or a float!")
+        print(f"{operand} should be an integer/float/')'!")
+
+
+def validate_right(operand) -> bool:
+    """
+    the function checks if the right char is operand
+    :param operand: the char
+    :return: True if the operand is an operand
+             except ValueError if the char is not an operand
+    """
+    try:
+        return type(int(operand)) == int or type(float(operand)) == float or operand == '('
+    except ValueError:
+        print(f"{operand} should be an integer/float/'('!")
 
 
 def validate_two_operands_type(operand1, operand2):
@@ -23,8 +36,8 @@ def validate_two_operands_type(operand1, operand2):
     :return: None if the operands are numbers
              except ValueError if the one or more of the operands is not a number
     """
-    validate_operand_type(operand1)
-    validate_operand_type(operand2)
+    validate_left(operand1)
+    validate_right(operand2)
 
 
 def validate_addition(left, right):
@@ -134,11 +147,11 @@ def validate_negation(left, right):
     :param right: the char after the operator (supposed to be the operand)
     :return: None if the operation is valid, Exception if not
     """
-    if left is not None:
-        if left not in OPERATORS:
-            raise OperatorError("There should be an operator on the left of negation operator!")
-    if right is not None:
-        validate_operand_type(right)
+    # if left is not None:
+    #     if left not in OPERATORS:
+    #         raise OperatorError("There should be an operator on the left of negation operator!")
+    # if right is not None:
+    #     validate_right(right)
 
 
 def validate_factorial(left, right):
@@ -149,11 +162,11 @@ def validate_factorial(left, right):
     :return: None if the operation is valid, Exception if not
     """
     if left is not None:
-        validate_operand_type(left)
+        validate_left(left)
         if not float(left).is_integer() or int(left) < 0:
             raise ValueError("Factorial is legal for natural numbers only!")
     if right is not None:
-        if right not in OPERATORS:
+        # if right not in OPERATORS:
             raise OperatorError("There should be an operator on the left of negation operator!")
 
 
@@ -165,9 +178,9 @@ def validate_digits_sum(left, right):
     :return: None if the operation is valid, Exception if not
     """
     if left is not None:
-        validate_operand_type(left)
+        validate_left(left)
     if right is not None:
-        if right not in OPERATORS:
+        # if right not in OPERATORS:
             raise OperatorError("There should be an operator on the left of negation operator!")
 
 
