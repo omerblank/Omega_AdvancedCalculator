@@ -28,7 +28,7 @@ def validate_right_bracket(left, right):
         if ONE_OPERAND.get(left) == "left" or (left in TWO_OPERANDS):
             raise BracketsError(f"{left} can't come before ')' !")
     if right is not None:
-        if right not in OPERATORS or ONE_OPERAND.get(right) == "right":
+        if right not in OPERATORS or ONE_OPERAND.get(right) == "left":
             raise BracketsError(f"{right} can't come after ')' !")
 
 

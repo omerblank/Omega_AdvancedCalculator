@@ -10,6 +10,7 @@ def reduce_minuses(arithmetic_expression: str) -> str:
     :param arithmetic_expression: the received expression
     :return: the expression with reduced minuses
     """
+    before_minus = ''
     count_minus = 0
     new_expression = ""
     for i in range(len(arithmetic_expression)):
@@ -17,12 +18,16 @@ def reduce_minuses(arithmetic_expression: str) -> str:
             count_minus += 1
         elif arithmetic_expression[i].isdigit() and count_minus > 0:
             if count_minus % 2 == 0:
-                new_expression = new_expression.__add__(arithmetic_expression[i])
+                if before_minus.isdigit() or before_minus == ')':
+                    new_expression = new_expression.__add__('+' + arithmetic_expression[i])
+                else:
+                    new_expression = new_expression.__add__(arithmetic_expression[i])
                 count_minus = 0
             else:
                 new_expression = new_expression.__add__('-' + arithmetic_expression[i])
                 count_minus = 0
         else:
+            before_minus = arithmetic_expression[i]
             new_expression = new_expression.__add__(arithmetic_expression[i])
             count_minus = 0
     return new_expression
@@ -37,6 +42,8 @@ def reduce_spaces(arithmetic_expression: str) -> str:
     return arithmetic_expression.replace(' ', '')
 
 
+# def validate_right_single_operator_sequence(ari)
+
 def validate_operator_in_expression(arithmetic_expression: str, index: int):
     """
     the function validates operator in the received expression
@@ -48,7 +55,7 @@ def validate_operator_in_expression(arithmetic_expression: str, index: int):
     if operator not in OPERATORS:
         raise OperatorError(f"{operator} is unidentified!")
     if index == 0:
-        if (OPERATORS.get(operator).__base__ == TwoOperands and operator != '-') or ONE_OPERAND.get(
+        if (OPERATORS.get(operator).__base__ == TwoOperands) or ONE_OPERAND.get(
                 operator) == "right":
             raise OperatorError(f"{operator} can't open an expression!")
         OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
@@ -90,7 +97,7 @@ def is_signed(arithmetic_expression: str, index: int):
         raise OperatorError(f"{minus} can't close an expression!")
     if index == 0 and validate_right(arithmetic_expression[index + 1]):
         return True
-    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index-1] == '(' or ONE_OPERAND.get(
+    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] == '(' or ONE_OPERAND.get(
             arithmetic_expression[index - 1]) == "left" and validate_right(arithmetic_expression[index + 1]):
         return True
     return False

@@ -23,6 +23,31 @@ def digits_to_number(arithmetic_expression: str, index: int):
     return float(number), index
 
 
+# todo: complete the function!
+def reduce_single_operands(arithmetic_expression: str) -> str:
+    new_expression = ""
+    operand_before = 0
+    sequence_sum = 0
+    index = 0
+    while index < len(arithmetic_expression):
+        if ONE_OPERAND.get(arithmetic_expression[index]) == "right":
+            if index == 0:
+                raise OperatorError(f"{arithmetic_expression[index]} can't open an expression!")
+            elif index == len(arithmetic_expression) - 1 or ONE_OPERAND.get(arithmetic_expression[index + 1]) is None:
+                new_expression = new_expression.__add__(str(operand_before) + arithmetic_expression[index])
+            else:
+                operand_before = OPERATORS.get(arithmetic_expression[index])(operand_before, None).calculate()
+        else:
+            if arithmetic_expression[index].isdigit():
+                operand_before, index = digits_to_number(arithmetic_expression, index)
+            else:
+                new_expression = new_expression.__add__(arithmetic_expression[index])
+        if index == len(arithmetic_expression)-1:
+            new_expression = new_expression.__add__(arithmetic_expression[index])
+        index += 1
+    return new_expression
+
+
 def operate_and_push(operators_stack: list, operands_stack: list):
     # todo: fix calculations, according to receiving left and right, and not only one operand
     """
@@ -79,7 +104,7 @@ def calculate(arithmetic_expression: str) -> str:
         else:
             validate_operator_in_expression(arithmetic_expression, index)
             # loop for adding the new operator to the correct index in the stack
-            while operators_stack.__len__() > 0 and OPERATORS_PRIORITY.get(symbol) < OPERATORS_PRIORITY.get(
+            while operators_stack.__len__() > 0 and OPERATORS_PRIORITY.get(symbol) <= OPERATORS_PRIORITY.get(
                     operators_stack[-1]):
                 operate_and_push(operators_stack, operands_stack)
             # push the new operator to the operators stack

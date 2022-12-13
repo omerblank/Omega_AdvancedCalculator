@@ -1,8 +1,8 @@
-# from ConstantsAndExceptions.constants import OPERATORS
+from ConstantsAndExceptions.constants import *
 from ConstantsAndExceptions.exceptions import *
 
 
-def validate_left(operand) -> bool:
+def validate_left(operand: str) -> bool:
     """
     the function checks if the left char is operand
     :param operand: the char
@@ -10,12 +10,14 @@ def validate_left(operand) -> bool:
              except ValueError if the char is not an operand
     """
     try:
-        return type(int(operand)) == int or type(float(operand)) == float or operand == ')'
+        # todo: make (operand == ')' or operand == '#' or operand == '!') works in a more generic way using constants
+        return operand == ')' or operand == '#' or operand == '!' or type(int(operand)) == int or type(
+            float(operand)) == float
     except ValueError:
-        print(f"{operand} should be an integer/float/')'!")
+        raise ValueError(f"{operand} should be a valid operand!")
 
 
-def validate_right(operand) -> bool:
+def validate_right(operand: str) -> bool:
     """
     the function checks if the right char is operand
     :param operand: the char
@@ -23,9 +25,10 @@ def validate_right(operand) -> bool:
              except ValueError if the char is not an operand
     """
     try:
-        return type(int(operand)) == int or type(float(operand)) == float or operand == '('
+        # todo: make (operand == '(' or operand == '~') works in a more generic way
+        return operand == '(' or operand == '~' or type(int(operand)) == int or type(float(operand)) == float
     except ValueError:
-        print(f"{operand} should be an integer/float/'('!")
+        raise ValueError(f"{operand} should be a valid operand!")
 
 
 def validate_two_operands_type(operand1, operand2):
@@ -150,8 +153,9 @@ def validate_negation(left, right):
     # if left is not None:
     #     if left not in OPERATORS:
     #         raise OperatorError("There should be an operator on the left of negation operator!")
-    # if right is not None:
-    #     validate_right(right)
+    if right is not None:
+        if right != '(':
+            validate_right(right)
 
 
 def validate_factorial(left, right):
@@ -162,12 +166,13 @@ def validate_factorial(left, right):
     :return: None if the operation is valid, Exception if not
     """
     if left is not None:
-        validate_left(left)
-        if not float(left).is_integer() or int(left) < 0:
-            raise ValueError("Factorial is legal for natural numbers only!")
-    if right is not None:
-        # if right not in OPERATORS:
-            raise OperatorError("There should be an operator on the left of negation operator!")
+        if left != ')':
+            validate_left(left)
+            if not float(left).is_integer() or int(left) < 0:
+                raise ValueError("Factorial is legal for natural numbers only!")
+    # if right is not None:
+    # if right not in OPERATORS:
+    #     raise OperatorError("There should be an operator on the left of negation operator!")
 
 
 def validate_digits_sum(left, right):
@@ -177,11 +182,12 @@ def validate_digits_sum(left, right):
     :param right: the char after the operator
     :return: None if the operation is valid, Exception if not
     """
-    if left is not None:
-        validate_left(left)
-    if right is not None:
-        # if right not in OPERATORS:
-            raise OperatorError("There should be an operator on the left of negation operator!")
+    if left != ')':
+        if left is not None:
+            validate_left(left)
+    # if right is not None:
+    # if right not in OPERATORS:
+    #     raise OperatorError("There should be an operator on the left of negation operator!")
 
 
 def operator_validation(validation, left, right):
