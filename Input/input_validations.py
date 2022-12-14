@@ -16,20 +16,25 @@ def reduce_minuses(arithmetic_expression: str) -> str:
     for i in range(len(arithmetic_expression)):
         if arithmetic_expression[i] == '-':
             count_minus += 1
-        elif arithmetic_expression[i].isdigit() and count_minus > 0:
+        elif count_minus > 0:
             if count_minus % 2 == 0:
-                if before_minus.isdigit() or before_minus == ')':
+                if before_minus.isdigit() or before_minus in CLOSERS:
                     new_expression = new_expression.__add__('+' + arithmetic_expression[i])
+                    before_minus = arithmetic_expression[i]
                 else:
                     new_expression = new_expression.__add__(arithmetic_expression[i])
+                    before_minus = arithmetic_expression[i]
                 count_minus = 0
             else:
                 new_expression = new_expression.__add__('-' + arithmetic_expression[i])
+                before_minus = arithmetic_expression[i]
                 count_minus = 0
         else:
             before_minus = arithmetic_expression[i]
             new_expression = new_expression.__add__(arithmetic_expression[i])
             count_minus = 0
+    if count_minus > 0:
+        new_expression = new_expression.__add__('-' * count_minus)
     return new_expression
 
 
@@ -42,8 +47,6 @@ def reduce_spaces(arithmetic_expression: str) -> str:
     return arithmetic_expression.replace(' ', '')
 
 
-# def validate_right_single_operator_sequence(ari)
-
 def validate_operator_in_expression(arithmetic_expression: str, index: int):
     """
     the function validates operator in the received expression
@@ -53,17 +56,15 @@ def validate_operator_in_expression(arithmetic_expression: str, index: int):
     """
     operator = arithmetic_expression[index]
     if operator not in OPERATORS:
-        raise OperatorError(f"{operator} is unidentified!")
-    if index == 0:
-        if (OPERATORS.get(operator).__base__ == TwoOperands) or ONE_OPERAND.get(
-                operator) == "right":
+        raise ValueError(f"{operator} is unidentified!")
+    elif index == 0:
+        if (OPERATORS.get(operator).__base__ == TwoOperands) or operator in RIGHT_UNARY:
             raise OperatorError(f"{operator} can't open an expression!")
-        OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
+        # OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
     elif index == len(arithmetic_expression) - 1:
-        if OPERATORS.get(operator).__base__ == TwoOperands or ONE_OPERAND.get(
-                operator) == "left":
+        if OPERATORS.get(operator).__base__ == TwoOperands or operator in LEFT_UNARY:
             raise OperatorError(f"{operator} can't close an expression!")
-        OPERATORS.get(operator)(arithmetic_expression[index - 1], None)
+        # OPERATORS.get(operator)(arithmetic_expression[index - 1], None)
     else:
         OPERATORS.get(operator)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
@@ -78,7 +79,6 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
     bracket = arithmetic_expression[index]
     if arithmetic_expression.count('(') != arithmetic_expression.count(')'):
         raise BracketsError("'(' and ')' amount should be equal!")
-
     if index == 0:
         if bracket == ')':
             raise BracketsError(f"{bracket} can't open an expression!")
@@ -91,14 +91,13 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
         BRACKETS.get(bracket)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
 
+# todo: fix this function!
 def is_signed(arithmetic_expression: str, index: int):
     minus = arithmetic_expression[index]
-    if index == len(arithmetic_expression) - 1:
-        raise OperatorError(f"{minus} can't close an expression!")
-    if index == 0 and validate_right(arithmetic_expression[index + 1]):
+    if index == 0 and validate_right(arithmetic_expression[index + 1], minus):
         return True
-    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] == '(' or ONE_OPERAND.get(
-            arithmetic_expression[index - 1]) == "left" and validate_right(arithmetic_expression[index + 1]):
+    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] in OPENERS or \
+            arithmetic_expression[index - 1] in LEFT_UNARY and validate_right(arithmetic_expression[index + 1], minus):
         return True
     return False
 
