@@ -1,5 +1,4 @@
 from Brackets.brackets_classes import *
-from ConstantsAndExceptions.constants import *
 from Operators.operators_classes import *
 
 
@@ -60,11 +59,11 @@ def validate_operator_in_expression(arithmetic_expression: str, index: int):
     elif index == 0:
         if (OPERATORS.get(operator).__base__ == TwoOperands) or operator in RIGHT_UNARY:
             raise OperatorError(f"{operator} can't open an expression!")
-        # OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
+        OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
     elif index == len(arithmetic_expression) - 1:
         if OPERATORS.get(operator).__base__ == TwoOperands or operator in LEFT_UNARY:
             raise OperatorError(f"{operator} can't close an expression!")
-        # OPERATORS.get(operator)(arithmetic_expression[index - 1], None)
+        OPERATORS.get(operator)(arithmetic_expression[index - 1], None)
     else:
         OPERATORS.get(operator)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
@@ -79,6 +78,8 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
     bracket = arithmetic_expression[index]
     if arithmetic_expression.count('(') != arithmetic_expression.count(')'):
         raise BracketsError("'(' and ')' amount should be equal!")
+    if arithmetic_expression[:index+1].count('(') < arithmetic_expression[:index+1].count(')'):
+        raise BracketsError("missing '('")
     if index == 0:
         if bracket == ')':
             raise BracketsError(f"{bracket} can't open an expression!")
@@ -94,10 +95,12 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
 # todo: fix this function!
 def is_signed(arithmetic_expression: str, index: int):
     minus = arithmetic_expression[index]
-    if index == 0 and validate_right(arithmetic_expression[index + 1], minus):
+    if index == 0 and (
+            arithmetic_expression[index + 1] in OPENERS or validate_right(arithmetic_expression[index + 1], minus)):
         return True
-    if arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] in OPENERS or \
-            arithmetic_expression[index - 1] in LEFT_UNARY and validate_right(arithmetic_expression[index + 1], minus):
+    if (arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] in OPENERS or
+        arithmetic_expression[index - 1] in LEFT_UNARY) and (
+            arithmetic_expression[index + 1] in OPENERS or validate_right(arithmetic_expression[index + 1], minus)):
         return True
     return False
 

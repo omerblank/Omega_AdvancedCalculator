@@ -15,13 +15,13 @@ class Bracket(object):
 class RoundLeftBracket(Bracket):
     def __init__(self, left, right):
         super().__init__(left, right)
-        super().validate(validate_left_bracket)
+        super().validate(validate_round_opener)
 
 
 class RoundRightBracket(Bracket):
     def __init__(self, left, right):
         super().__init__(left, right)
-        super().validate(validate_right_bracket)
+        super().validate(validate_round_closer)
 
 
 # Brackets Constants:
@@ -29,7 +29,7 @@ BRACKETS = {'(': RoundLeftBracket, ')': RoundRightBracket}
 
 
 # Brackets Validations:
-def validate_left_bracket(left, right):
+def validate_round_opener(left, right):
     """
     the function checks if left bracket '(' is valid
     :param left: the char before the bracket
@@ -44,7 +44,7 @@ def validate_left_bracket(left, right):
             raise BracketsError(f"{right} can't come after ( !")
 
 
-def validate_right_bracket(left, right):
+def validate_round_closer(left, right):
     """
     the function checks if right bracket ')' is valid
     :param left: the char before the bracket
@@ -55,7 +55,7 @@ def validate_right_bracket(left, right):
         if left in LEFT_UNARY or left in TWO_OPERANDS or left in OPENERS:
             raise BracketsError(f"{left} can't come before ')' !")
     if right is not None:
-        if right not in OPERATORS or right in LEFT_UNARY:
+        if (right not in CLOSERS and right not in OPERATORS) or right in LEFT_UNARY:
             raise BracketsError(f"{right} can't come after ')' !")
 
 

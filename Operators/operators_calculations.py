@@ -1,3 +1,4 @@
+from ConstantsAndExceptions.exceptions import OperatorError
 from Operators.my_operators import *
 
 
@@ -38,6 +39,8 @@ def calculate_division(operand1, operand2):
     :param operand2: second operand
     :return: operand1 / operand2
     """
+    if operand2 == 0:
+        raise ZeroDivisionError("Division by zero is illegal!")
     return operand1 / operand2
 
 
@@ -48,6 +51,10 @@ def calculate_power(operand1, operand2):
     :param operand2: second operand
     :return: operand1 ^ operand2
     """
+    if operand1 == 0 and operand2 == 0:
+        raise OperatorError("0 to the power of 0 is illegal!")
+    if type(pow(operand1, operand2)) is complex:
+        raise OperatorError("Omega calculator doesn't handle complex numbers!")
     return pow(operand1, operand2)
 
 
@@ -58,6 +65,8 @@ def calculate_modulo(operand1, operand2):
     :param operand2: second operand
     :return: operand1 % operand2
     """
+    if operand2 == 0:
+        raise ZeroDivisionError("Modulo by zero is illegal!")
     return operand1 % operand2
 
 
@@ -68,6 +77,8 @@ def calculate_maximum(operand1, operand2):
     :param operand2: second operand
     :return: operand1 $ operand2
     """
+    if operand1 == operand2:
+        raise OperatorError("No maximum between equal operands!")
     return maximum(operand1, operand2)
 
 
@@ -78,6 +89,8 @@ def calculate_minimum(operand1, operand2):
     :param operand2: second operand
     :return: operand1 & operand2
     """
+    if operand1 == operand2:
+        raise OperatorError("No minimum between equal operands!")
     return minimum(operand1, operand2)
 
 
@@ -106,6 +119,8 @@ def calculate_factorial(operand):
     :param operand: the operand
     :return: operand!
     """
+    if not float(operand).is_integer() or int(operand) < 0:
+        raise ValueError("Factorial is legal for natural numbers only!")
     return factorial(operand)
 
 

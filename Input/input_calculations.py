@@ -23,33 +23,7 @@ def digits_to_number(arithmetic_expression: str, index: int):
     return float(number), index
 
 
-# todo: complete the function!
-# def reduce_single_operands(arithmetic_expression: str) -> str:
-#     new_expression = ""
-#     operand_before = 0
-#     sequence_sum = 0
-#     index = 0
-#     while index < len(arithmetic_expression):
-#         if arithmetic_expression[index] in RIGHT_UNARY:
-#             if index == 0:
-#                 raise OperatorError(f"{arithmetic_expression[index]} can't open an expression!")
-#             elif index == len(arithmetic_expression) - 1 or arithmetic_expression[index + 1] not in UNARY:
-#                 new_expression = new_expression.__add__(str(operand_before) + arithmetic_expression[index])
-#             else:
-#                 operand_before = OPERATORS.get(arithmetic_expression[index])(operand_before, None).calculate()
-#         else:
-#             if arithmetic_expression[index].isdigit():
-#                 operand_before, index = digits_to_number(arithmetic_expression, index)
-#             else:
-#                 new_expression = new_expression.__add__(arithmetic_expression[index])
-#         if index == len(arithmetic_expression) - 1:
-#             new_expression = new_expression.__add__(arithmetic_expression[index])
-#         index += 1
-#     return new_expression
-
-
 def operate_and_push(operators_stack: list, operands_stack: list):
-    # todo: fix calculations, according to receiving left and right, and not only one operand
     """
     the function gets an operators stack and an operands stack, pops the last operator from the stack
      and according to its type, pops operands, calculates the operation and push it to the operands stack
@@ -79,9 +53,6 @@ def calculate(arithmetic_expression: str) -> str:
     :param arithmetic_expression: the arithmetic expression
     :return: the result of the expression
     """
-    arithmetic_expression = reduce_spaces(arithmetic_expression)
-    arithmetic_expression = reduce_minuses(arithmetic_expression)
-    arithmetic_expression = signed_operand(arithmetic_expression)
     operands_stack = []
     operators_stack = []
     index = 0
@@ -116,17 +87,22 @@ def calculate(arithmetic_expression: str) -> str:
         operate_and_push(operators_stack, operands_stack)
     return operands_stack.pop()
 
-
-def calculation():
-    arithmetic_expression = input("Hi user, please enter something to calculate:\n")
-    arithmetic_expression = reduce_spaces(arithmetic_expression)
-    arithmetic_expression = reduce_minuses(arithmetic_expression)
-    arithmetic_expression = signed_operand(arithmetic_expression)
-    print(f"Result: {calculate(arithmetic_expression)}")
-    choice = input("Press 'Q' to quit Omega Calculator or 'C' to continue:\n")
-    while choice.lower() != 'q' and choice.lower() != 'c':
-        choice = input("Wrong input, Press 'Q' to quit Omega Calculator or 'C' to continue!")
-    if choice.lower() == 'q':
-        pass
-    else:
-        calculation()
+# def calculation():
+#     arithmetic_expression = input("Hi user, please enter something to calculate:\n")
+#     arithmetic_expression = reduce_spaces(arithmetic_expression)
+#     arithmetic_expression = reduce_minuses(arithmetic_expression)
+#     arithmetic_expression = signed_operand(arithmetic_expression)
+#     if arithmetic_expression == "":
+#         print("can't calculate an empty expression!")
+#         calculation()
+#     # try:
+#     print(f"Result: {calculate(arithmetic_expression)}")
+#     choice = input("Press 'Q' to quit Omega Calculator or 'C' to continue:\n")
+#     while choice.lower() != 'q' and choice.lower() != 'c':
+#         choice = input("Wrong input, Press 'Q' to quit Omega Calculator or 'C' to continue!")
+#     if choice.lower() == 'q':
+#         print("Ω")
+#         pass
+#     else:
+#         calculation()
+#     # except:

@@ -176,13 +176,13 @@ def validate_right(operand: str, operator) -> bool:
     try:
         return type(int(operand)) == int or type(float(operand)) == float
     except ValueError:
-        raise ValueError(f"{operand} is illegal after {operator}!")
+        raise ValueError(f"{operand} is illegal after {operator}")
 
 
 def validate_left_unary(left, right):
     if left is not None:
         if (left not in OPERATORS and left not in OPENERS) or left in UNARY:
-            raise OperatorError(f"{left} is illegal before a left unary operator!")
+            raise OperatorError(f"{left} is illegal before {LEFT_UNARY}")
     if right is not None:
         if right not in OPENERS:
             validate_right(right, LEFT_UNARY)
@@ -194,7 +194,7 @@ def validate_right_unary(left, right):
             validate_left(left, RIGHT_UNARY)
     if right is not None:
         if (right not in OPERATORS and right not in CLOSERS) or right in LEFT_UNARY:
-            raise OperatorError(f"{right} is illegal after a right unary operator!")
+            raise OperatorError(f"{right} is illegal after {RIGHT_UNARY}")
 
 
 def validate_two_operands(left, right):
@@ -248,8 +248,8 @@ def validate_division(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_two_operands(left, right)
-    if right == 0:
-        raise ZeroDivisionError("Division by zero is illegal!")
+    # if right == 0:
+    #     raise ZeroDivisionError("Division by zero is illegal!")
 
 
 def validate_power(left, right):
@@ -260,8 +260,8 @@ def validate_power(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_two_operands(left, right)
-    if left == 0 and right == 0:
-        raise OperatorError("0 to the power of 0 is illegal!")
+    # if left == 0 and right == 0:
+    #     raise OperatorError("0 to the power of 0 is illegal!")
 
 
 def validate_modulo(left, right):
@@ -272,8 +272,8 @@ def validate_modulo(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_two_operands(left, right)
-    if right == 0:
-        raise ZeroDivisionError("Modulo by zero is illegal!")
+    # if right == 0:
+    #     raise ZeroDivisionError("Modulo by zero is illegal!")
 
 
 def validate_maximum(left, right):
@@ -284,8 +284,8 @@ def validate_maximum(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_two_operands(left, right)
-    if left == right:
-        raise OperatorError("No maximum between equal operands!")
+    # if left == right:
+    #     raise OperatorError("No maximum between equal operands!")
 
 
 def validate_minimum(left, right):
@@ -296,8 +296,8 @@ def validate_minimum(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_two_operands(left, right)
-    if left == right:
-        raise OperatorError("No minimum between equal operands!")
+    # if left == right:
+    #     raise OperatorError("No minimum between equal operands!")
 
 
 def validate_average(left, right):
@@ -328,8 +328,8 @@ def validate_factorial(left, right):
     :return: None if the operation is valid, Exception if not
     """
     validate_right_unary(left, right)
-    if not float(left).is_integer() or int(left) < 0:
-        raise ValueError("Factorial is legal for natural numbers only!")
+    # if not float(left).is_integer() or int(left) < 0:
+    #     raise ValueError("Factorial is legal for natural numbers only!")
 
 
 def validate_digits_sum(left, right):
