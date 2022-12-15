@@ -1,7 +1,15 @@
+# module to show the user messages while he is using the calculator
 from Input.input_validations import *
 
 
-def make_a_choice(valid_choice, do_what, operation):
+def make_a_choice(valid_choice: str, do_what: str, operation) -> None:
+    """
+    this function asks the user if he wants to make a choice or not
+    :param valid_choice: the input for making the choice
+    :param do_what: what the choice will do
+    :param operation: the function that the choice will operate
+    :return: None
+    """
     choice = input(f"Ω PRESS '{valid_choice}' TO {do_what} OR ENTER TO SKIP Ω\n")
     while choice.lower() != valid_choice and choice != '':
         choice = input(f"Ω INVALID INPUT, PRESS '{valid_choice}' TO {do_what} OR ENTER TO SKIP Ω\n")
@@ -10,7 +18,15 @@ def make_a_choice(valid_choice, do_what, operation):
     print()
 
 
-def make_a_choice_with_feature(valid_choice, do_what, operation, feature):
+def make_a_choice_with_feature(valid_choice, do_what, operation, feature) -> None:
+    """
+    this function asks the user if he wants to make a choice or not
+    :param valid_choice: the input for making the choice
+    :param do_what: what the choice will do
+    :param operation: the function that the choice will operate
+    :param feature: the function that the operation function will operate
+    :return: None
+    """
     choice = input(f"Ω PRESS '{valid_choice}' TO {do_what} OR ENTER TO SKIP Ω\n")
     while choice.lower() != valid_choice and choice != '':
         choice = input(f"Ω INVALID INPUT, PRESS '{valid_choice}' TO {do_what} OR ENTER TO SKIP Ω\n")
@@ -19,12 +35,21 @@ def make_a_choice_with_feature(valid_choice, do_what, operation, feature):
     print()
 
 
-def try_me(feature):
+def try_me(feature) -> None:
+    """
+    this function let the user to try a feature in the calculator
+    :param feature: the feature to try
+    :return: None
+    """
     expression = input("Ω ENTER AN ARITHMETIC EXPRESSION Ω\n")
     print(f"Ω AFTER FEATURE Ω\n{feature(expression)}")
 
 
-def minuses_reducing_feature():
+def minuses_reducing_feature() -> None:
+    """
+    this function introduce the minus reducing function to the user, and allows him to try it
+    :return: None
+    """
     print("Ω MINUS REDUCING FEATURE Ω\n"
           "this feature allows you to enter as many minuses as you want between operators or between "
           "operands.\n"
@@ -32,19 +57,31 @@ def minuses_reducing_feature():
     make_a_choice_with_feature('-', "TRY ME", try_me, reduce_minuses)
 
 
-def spaces_reducing_feature():
+def spaces_reducing_feature() -> None:
+    """
+    this function introduce the spaces reducing function to the user, and allows him to try it
+    :return: None
+    """
     print("Ω SPACES REDUCING FEATURE Ω\n"
           "this feature allows you to enter as many spaces as you want everywhere.\n"
           "the system takes care of reducing the spaces accordingly.\n")
     make_a_choice_with_feature(' ', "TRY ME", try_me, reduce_spaces)
 
 
-def introduce_features():
+def introduce_features() -> None:
+    """
+    this function introduces the features of the system to the user
+    :return: None
+    """
     minuses_reducing_feature()
     spaces_reducing_feature()
 
 
-def introduce_operators():
+def introduce_operators() -> None:
+    """
+    this function introduces the operators of the system to the user
+    :return: None
+    """
     print(f"Ω OPERATORS FOR TWO OPERANDS Ω\n"
           f"{TWO_OPERANDS}\n"
           f"Ω OPERATORS FOR ONE OPERAND Ω\n"

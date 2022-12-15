@@ -1,8 +1,14 @@
+# module to allow the user to use the calculator
 from Input.input_calculations import *
 from Output.messages import *
 
 
-def calculation():
+def calculation() -> None:
+    """
+    the function gets the input from the user, tries to calculate it, and asks the user if he want to insert a new
+    input or stop the program
+    :return: None
+    """
     arithmetic_expression = input("Enter something to calculate:\n")
     arithmetic_expression = reduce_spaces(arithmetic_expression)
     arithmetic_expression = reduce_minuses(arithmetic_expression)
@@ -16,7 +22,11 @@ def calculation():
     make_a_choice('c', "CONTINUE", calculation)
 
 
-def calculator():
+def calculator() -> None:
+    """
+    The function is the total calculator product, including everything in the system
+    :return: None
+    """
     welcome_message()
     calculation()
     goodbye_message()
