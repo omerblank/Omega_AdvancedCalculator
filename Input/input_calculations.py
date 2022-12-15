@@ -1,3 +1,4 @@
+# module for calculations on the input
 from Input.input_validations import *
 from Operators.operators_classes import *
 
@@ -31,19 +32,19 @@ def operate_and_push(operators_stack: list, operands_stack: list):
     :param operands_stack: a stack of operands
     :return: None
     """
-    if OPERATORS.get(operators_stack[-1]).__base__ == OneOperand:
+    if OPERATORS_AND_CLASSES.get(operators_stack[-1]).__base__ == OneOperand:
         operand = operands_stack.pop()
         operator = operators_stack.pop()
         if operator in RIGHT_UNARY:
-            operands_stack.append(OPERATORS.get(operator)(operand, None).calculate())
+            operands_stack.append(OPERATORS_AND_CLASSES.get(operator)(operand, None).calculate())
         if operator in LEFT_UNARY:
-            operands_stack.append(OPERATORS.get(operator)(None, operand).calculate())
+            operands_stack.append(OPERATORS_AND_CLASSES.get(operator)(None, operand).calculate())
 
-    elif OPERATORS.get(operators_stack[-1]).__base__ == TwoOperands:
+    elif OPERATORS_AND_CLASSES.get(operators_stack[-1]).__base__ == TwoOperands:
         operand2 = operands_stack.pop()
         operand1 = operands_stack.pop()
         operator = operators_stack.pop()
-        operands_stack.append(OPERATORS.get(operator)(operand1, operand2).calculate())
+        operands_stack.append(OPERATORS_AND_CLASSES.get(operator)(operand1, operand2).calculate())
 
 
 # main function

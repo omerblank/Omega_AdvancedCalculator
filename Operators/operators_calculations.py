@@ -1,3 +1,4 @@
+# module for the system's operators calculations
 from ConstantsAndExceptions.exceptions import OperatorError
 from Operators.my_operators import *
 

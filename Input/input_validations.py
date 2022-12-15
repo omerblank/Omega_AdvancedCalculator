@@ -1,3 +1,4 @@
+# module for validations on the input
 from Brackets.brackets_classes import *
 from Operators.operators_classes import *
 
@@ -57,15 +58,15 @@ def validate_operator_in_expression(arithmetic_expression: str, index: int):
     if operator not in OPERATORS:
         raise ValueError(f"{operator} is unidentified!")
     elif index == 0:
-        if (OPERATORS.get(operator).__base__ == TwoOperands) or operator in RIGHT_UNARY:
+        if (OPERATORS_AND_CLASSES.get(operator).__base__ == TwoOperands) or operator in RIGHT_UNARY:
             raise OperatorError(f"{operator} can't open an expression!")
-        OPERATORS.get(operator)(None, arithmetic_expression[index + 1])
+        OPERATORS_AND_CLASSES.get(operator)(None, arithmetic_expression[index + 1])
     elif index == len(arithmetic_expression) - 1:
-        if OPERATORS.get(operator).__base__ == TwoOperands or operator in LEFT_UNARY:
+        if OPERATORS_AND_CLASSES.get(operator).__base__ == TwoOperands or operator in LEFT_UNARY:
             raise OperatorError(f"{operator} can't close an expression!")
-        OPERATORS.get(operator)(arithmetic_expression[index - 1], None)
+        OPERATORS_AND_CLASSES.get(operator)(arithmetic_expression[index - 1], None)
     else:
-        OPERATORS.get(operator)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
+        OPERATORS_AND_CLASSES.get(operator)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
 
 def validate_bracket_in_expression(arithmetic_expression: str, index: int):
@@ -83,13 +84,13 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int):
     if index == 0:
         if bracket == ')':
             raise BracketsError(f"{bracket} can't open an expression!")
-        BRACKETS.get(bracket)(None, arithmetic_expression[index + 1])
+        BRACKETS_AND_CLASSES.get(bracket)(None, arithmetic_expression[index + 1])
     elif index == len(arithmetic_expression) - 1:
         if bracket == '(':
             raise BracketsError(f"{bracket} can't close an expression!")
-        BRACKETS.get(bracket)(arithmetic_expression[index - 1], None)
+        BRACKETS_AND_CLASSES.get(bracket)(arithmetic_expression[index - 1], None)
     else:
-        BRACKETS.get(bracket)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
+        BRACKETS_AND_CLASSES.get(bracket)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
 
 # todo: fix this function!

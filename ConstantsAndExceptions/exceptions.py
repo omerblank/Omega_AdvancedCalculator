@@ -1,3 +1,4 @@
+# module for customized exceptions
 class BracketsError(Exception):
     def __init__(self, message):
         self.message = message

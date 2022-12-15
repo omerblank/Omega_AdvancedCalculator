@@ -1,3 +1,4 @@
+# module for the system's special operators
 def maximum(operand1, operand2):
     """
     the function gets two operand and returns the greater operand
