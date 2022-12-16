@@ -4,7 +4,7 @@ from Operators.operators_classes import *
 
 
 # utility functions
-def digits_to_number(arithmetic_expression: str, index: int):
+def digits_to_number(arithmetic_expression: str, index: int) -> (float, int):
     """
     the function gets an expression and returns a number from the given index in the expression
     until the expression is over or the number is over
@@ -24,7 +24,7 @@ def digits_to_number(arithmetic_expression: str, index: int):
     return float(number), index
 
 
-def operate_and_push(operators_stack: list, operands_stack: list):
+def operate_and_push(operators_stack: list, operands_stack: list) -> None:
     """
     the function gets an operators stack and an operands stack, pops the last operator from the stack
      and according to its type, pops operands, calculates the operation and push it to the operands stack
@@ -87,23 +87,3 @@ def calculate(arithmetic_expression: str) -> str:
     while operators_stack.__len__() > 0:
         operate_and_push(operators_stack, operands_stack)
     return operands_stack.pop()
-
-# def calculation():
-#     arithmetic_expression = input("Hi user, please enter something to calculate:\n")
-#     arithmetic_expression = reduce_spaces(arithmetic_expression)
-#     arithmetic_expression = reduce_minuses(arithmetic_expression)
-#     arithmetic_expression = signed_operand(arithmetic_expression)
-#     if arithmetic_expression == "":
-#         print("can't calculate an empty expression!")
-#         calculation()
-#     # try:
-#     print(f"Result: {calculate(arithmetic_expression)}")
-#     choice = input("Press 'Q' to quit Omega Calculator or 'C' to continue:\n")
-#     while choice.lower() != 'q' and choice.lower() != 'c':
-#         choice = input("Wrong input, Press 'Q' to quit Omega Calculator or 'C' to continue!")
-#     if choice.lower() == 'q':
-#         print("Ω")
-#         pass
-#     else:
-#         calculation()
-#     # except:

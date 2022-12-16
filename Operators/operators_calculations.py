@@ -5,7 +5,7 @@ from Operators.my_operators import *
 
 def calculate_addition(operand1, operand2):
     """"
-    the function doing addition operation on operand1 and operand2
+    the function doing addition operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 + operand2
@@ -15,7 +15,7 @@ def calculate_addition(operand1, operand2):
 
 def calculate_subtraction(operand1, operand2):
     """
-    the function doing subtraction operation on operand1 and operand2
+    the function doing subtraction operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 - operand2
@@ -25,7 +25,7 @@ def calculate_subtraction(operand1, operand2):
 
 def calculate_multiplication(operand1, operand2):
     """
-    the function doing multiplication operation on operand1 and operand2
+    the function doing multiplication operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 * operand2
@@ -35,7 +35,7 @@ def calculate_multiplication(operand1, operand2):
 
 def calculate_division(operand1, operand2):
     """
-    the function doing division operation on operand1 and operand2
+    the function doing division operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 / operand2
@@ -47,7 +47,7 @@ def calculate_division(operand1, operand2):
 
 def calculate_power(operand1, operand2):
     """
-    the function doing power operation on operand1 and operand2
+    the function doing power operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 ^ operand2
@@ -61,7 +61,7 @@ def calculate_power(operand1, operand2):
 
 def calculate_modulo(operand1, operand2):
     """
-    the function doing modulo operation on operand1 and operand2
+    the function doing modulo operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 % operand2
@@ -73,7 +73,7 @@ def calculate_modulo(operand1, operand2):
 
 def calculate_maximum(operand1, operand2):
     """
-    the function doing maximum operation on operand1 and operand2
+    the function doing maximum operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 $ operand2
@@ -85,7 +85,7 @@ def calculate_maximum(operand1, operand2):
 
 def calculate_minimum(operand1, operand2):
     """
-    the function doing minimum operation on operand1 and operand2
+    the function doing minimum operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 & operand2
@@ -97,7 +97,7 @@ def calculate_minimum(operand1, operand2):
 
 def calculate_average(operand1, operand2):
     """
-    the function doing average operation on operand1 and operand2
+    the function doing average operation on operand1 and operand2 if it's valid
     :param operand1: first operand
     :param operand2: second operand
     :return: operand1 @ operand2
@@ -107,7 +107,7 @@ def calculate_average(operand1, operand2):
 
 def calculate_negation(operand):
     """
-    the function doing negation operation on operand
+    the function doing negation operation on operand if it's valid
     :param operand: the operand
     :return: ~operand
     """
@@ -116,7 +116,7 @@ def calculate_negation(operand):
 
 def calculate_factorial(operand):
     """
-    the function doing factorial operation on operand
+    the function doing factorial operation on operand if it's valid
     :param operand: the operand
     :return: operand!
     """
@@ -127,7 +127,7 @@ def calculate_factorial(operand):
 
 def calculate_digits_sum(operand):
     """
-    the function doing digits sum operation on operand
+    the function doing digits sum operation on operand if it's valid
     :param operand: the operand
     :return: operand#
     """
@@ -136,7 +136,7 @@ def calculate_digits_sum(operand):
 
 def two_operands_calculation(operator_calculation, operand1, operand2):
     """
-    the function doing a generic calculation on operand1 and operand2
+    the function doing a generic calculation on operand1 and operand2 if it's valid
     :param operator_calculation: two operands operator calculation function - for example: calculate_average
     :param operand1: first operand
     :param operand2: second operand
@@ -147,7 +147,7 @@ def two_operands_calculation(operator_calculation, operand1, operand2):
 
 def one_operand_calculation(operator_calculation, operand):
     """
-    the function doing a generic calculation on operand
+    the function doing a generic calculation on an operand if it's valid
     :param operator_calculation: one operand operator calculation function - for example: calculate_factorial
     :param operand: the operand
     :return: operator_calculation(operand)

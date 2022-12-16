@@ -20,8 +20,20 @@ def calculation() -> None:
     if arithmetic_expression == "":
         print("can't calculate an empty expression!")
         calculation()
-    print(f"Result: {calculate(arithmetic_expression)}")
-    make_a_choice('c', "CONTINUE", calculation)
+    try:
+        print(f"Result: {calculate(arithmetic_expression)}")
+    except ValueError as ve:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{ve}")
+    except TypeError as te:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{te}")
+    except ZeroDivisionError as zde:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{zde}")
+    except OperatorError as oe:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{oe}")
+    except BracketsError as be:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{be}")
+    finally:
+        make_a_choice('c', "CONTINUE", calculation)
 
 
 def calculator() -> None:

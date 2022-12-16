@@ -57,7 +57,7 @@ def factorial(operand: int) -> int:
 
 def digits_sum_util(operand) -> int:
     """
-    *this is a utility function for the '#' operand
+    *this is a utility function for the digits sum '#' operation*
     the function calculates the digits sum of a natural number
     :param operand: the operand
     :return: the sum of the operand's digits
@@ -71,7 +71,7 @@ def digits_sum_util(operand) -> int:
 
 def float_to_integer_util(operand: float) -> int:
     """
-    *this is a utility function for the '#' operand
+    *this is an utility function for the digits sum '#' operation*
     the function converts float into an integer while ignoring the decimal point
     :param operand: operand as float
     :return: operand as int (ignoring the decimal point)

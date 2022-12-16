@@ -25,5 +25,3 @@ class RoundRightBracket(Bracket):
 
 # Brackets Constants:
 BRACKETS_AND_CLASSES = {'(': RoundLeftBracket, ')': RoundRightBracket}
-
-# Brackets Validations:

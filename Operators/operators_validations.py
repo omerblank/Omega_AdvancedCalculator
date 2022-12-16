@@ -5,11 +5,11 @@ from ConstantsAndExceptions.exceptions import OperatorError
 
 def validate_left(operand: str, operator) -> bool:
     """
-    the function checks if the left char is operand
-    :param operator: the operator to validate
-    :param operand: the char
-    :return: True if the operand is an operand
-             except ValueError if the char is not an operand
+    the function checks if the operand before the operator is a valid operand
+    :param operator: the operator
+    :param operand: the operand before the operator
+    :return: True if the operand is a valid operand,
+             else raise ValueError
     """
     try:
         return type(int(operand)) == int or type(float(operand)) == float
@@ -19,11 +19,11 @@ def validate_left(operand: str, operator) -> bool:
 
 def validate_right(operand: str, operator) -> bool:
     """
-    the function checks if the right char is operand
-    :param operator: the operator to validate
-    :param operand: the char
-    :return: True if the operand is an operand
-             except ValueError if the char is not an operand
+    the function checks if the operand after the operator is a valid operand
+    :param operator: the operator
+    :param operand: the operand after the operator
+    :return: True if the operand is a valid operand,
+             else raise ValueError
     """
     try:
         return type(int(operand)) == int or type(float(operand)) == float
@@ -31,7 +31,13 @@ def validate_right(operand: str, operator) -> bool:
         raise ValueError(f"{operand} is illegal after {operator}")
 
 
-def validate_left_unary(left, right):
+def validate_left_unary(left, right) -> None:
+    """
+    the function checks if the chars before and after a left unary operator are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
     if left is not None:
         if (left not in OPERATORS and left not in OPENERS) or left in UNARY:
             raise OperatorError(f"{left} is illegal before {LEFT_UNARY}")
@@ -40,7 +46,13 @@ def validate_left_unary(left, right):
             validate_right(right, LEFT_UNARY)
 
 
-def validate_right_unary(left, right):
+def validate_right_unary(left, right) -> None:
+    """
+    the function checks if the chars before and after a right unary operator are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
     if left is not None:
         if left not in CLOSERS and left not in RIGHT_UNARY:
             validate_left(left, RIGHT_UNARY)
@@ -49,145 +61,144 @@ def validate_right_unary(left, right):
             raise OperatorError(f"{right} is illegal after {RIGHT_UNARY}")
 
 
-def validate_two_operands(left, right):
+def validate_two_operands(left, right) -> None:
     """
-    the function checks if two operands are numbers
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operands are numbers
-             except ValueError if the one or more of the operands is not a number
+    the function checks if the chars before and after a two operands operator are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     if (left not in CLOSERS and left not in RIGHT_UNARY) and (right not in OPENERS and right not in LEFT_UNARY):
         validate_left(left, TWO_OPERANDS)
         validate_right(right, TWO_OPERANDS)
 
 
-def validate_addition(left, right):
+def validate_addition(left, right) -> None:
     """
-    the function checks if addition operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
-    """
-    validate_two_operands(left, right)
-
-
-def validate_subtraction(left, right):
-    """
-    the function checks if subtraction operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after addition operator '+' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_two_operands(left, right)
 
 
-def validate_multiplication(left, right):
+def validate_subtraction(left, right) -> None:
     """
-    the function checks if multiplication operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
-    """
-    validate_two_operands(left, right)
-
-
-def validate_division(left, right):
-    """
-    the function checks if division operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after subtraction operator '-' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_two_operands(left, right)
 
 
-def validate_power(left, right):
+def validate_multiplication(left, right) -> None:
     """
-    the function checks if power operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
-    """
-    validate_two_operands(left, right)
-
-
-def validate_modulo(left, right):
-    """
-    the function checks if modulo operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after multiplication operator '*' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_two_operands(left, right)
 
 
-def validate_maximum(left, right):
+def validate_division(left, right) -> None:
     """
-    the function checks if maximum operation is valid
-    :param left: the char before the operator (supposed to be an operand)
-    :param right: the char after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
-    """
-    validate_two_operands(left, right)
-
-
-def validate_minimum(left, right):
-    """
-    the function checks if minimum operation is valid
-    :param left: the operand before the operator (supposed to be an operand)
-    :param right: the operand after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after division operator '/' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_two_operands(left, right)
 
 
-def validate_average(left, right):
+def validate_power(left, right) -> None:
     """
-    the function checks if average operation is valid
-    :param left: the operand before the operator (supposed to be an operand)
-    :param right: the operand after the operator (supposed to be an operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after power operator '^' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_two_operands(left, right)
 
 
-def validate_negation(left, right):
+def validate_modulo(left, right) -> None:
     """
-    the function checks if negation operation is valid
-    :param left: the operand before the operator
-    :param right: the operand after the operator (supposed to be the operand)
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after modulo operator '%' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
+    validate_two_operands(left, right)
+
+
+def validate_maximum(left, right) -> None:
+    """
+    the function checks if the chars before and after maximum operator '$' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
+    validate_two_operands(left, right)
+
+
+def validate_minimum(left, right) -> None:
+    """
+    the function checks if the chars before and after minimum operator '&' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
+    validate_two_operands(left, right)
+
+
+def validate_average(left, right) -> None:
+    """
+    the function checks if the chars before and after average operator '@' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
+    validate_two_operands(left, right)
+
+
+def validate_negation(left, right) -> None:
+    """
+    the function checks if the chars before and after negation operator '~' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_left_unary(left, right)
 
 
-def validate_factorial(left, right):
+def validate_factorial(left, right) -> None:
     """
-    the function checks if factorial operation is valid
-    :param left: the operand before the operator (supposed to be the operand)
-    :param right: the operand after the operator
-    :return: None if the operation is valid, Exception if not
-    """
-    validate_right_unary(left, right)
-
-
-def validate_digits_sum(left, right):
-    """
-    the function checks if digits sum operation is valid
-    :param left: the operand before the operator (supposed to be the operand)
-    :param right: the operand after the operator
-    :return: None if the operation is valid, Exception if not
+    the function checks if the chars before and after factorial operator '!' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
     """
     validate_right_unary(left, right)
 
 
-def operator_validation(validation, left, right):
+def validate_digits_sum(left, right) -> None:
+    """
+    the function checks if the chars before and after digits sum operator '#' are valid
+    :param left: the char before
+    :param right: the char after
+    :return: None
+    """
+    validate_right_unary(left, right)
+
+
+def operator_validation(validation, left, right) -> None:
     """
     the function doing a generic validation on an operator
     :param validation: operator validation function - for example: validate_average
-    :param left: the operand before the operator
-    :param right: the operand after the operator
-    :return: None if the operation is valid, Exception if not
+    :param left: the char before the operator
+    :param right: the char after the operator
+    :return: None
     """
     validation(left, right)

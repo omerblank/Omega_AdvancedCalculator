@@ -18,7 +18,7 @@ def make_a_choice(valid_choice: str, do_what: str, operation) -> None:
     print()
 
 
-def make_a_choice_with_feature(valid_choice, do_what, operation, feature) -> None:
+def make_a_choice_with_feature(valid_choice: str, do_what: str, operation, feature) -> None:
     """
     this function asks the user if he wants to make a choice or not
     :param valid_choice: the input for making the choice
