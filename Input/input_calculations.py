@@ -32,7 +32,7 @@ def operate_and_push(operators_stack: list, operands_stack: list) -> None:
     :param operands_stack: a stack of operands
     :return: None
     """
-    if OPERATORS_AND_CLASSES.get(operators_stack[-1]).__base__ == OneOperand:
+    if operators_stack[-1] in UNARY:
         operand = operands_stack.pop()
         operator = operators_stack.pop()
         if operator in RIGHT_UNARY:

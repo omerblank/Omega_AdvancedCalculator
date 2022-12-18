@@ -129,22 +129,30 @@ def signed_operand(arithmetic_expression: str) -> str:
             if is_signed(arithmetic_expression, index):
                 signed_flag = True
                 if index < len(arithmetic_expression) - 1 and arithmetic_expression[index + 1] in LEFT_UNARY:
-                    new_expression = new_expression.__add__("~(")
+                    # new_expression = new_expression.__add__("~(")
+                    index += 2
+                    signed_flag = False
+                    continue
                 else:
                     new_expression = new_expression.__add__("(~")
                 index += 1
                 continue
-        if signed_flag and not bracket_flag and \
-                (arithmetic_expression[index] in TWO_OPERANDS or arithmetic_expression[index] in LEFT_UNARY or
-                 arithmetic_expression[index] in OPENERS):
-            new_expression = new_expression.__add__(")")
+        if index < len(arithmetic_expression) - 1 and arithmetic_expression[index] in LEFT_UNARY and \
+                arithmetic_expression[index + 1] == '-':
+            index += 2
             signed_flag = False
-        new_expression = new_expression.__add__(arithmetic_expression[index])
+            continue
         if arithmetic_expression[index] == '(':
             bracket_flag = True
         if arithmetic_expression[index] == ')':
             bracket_flag = False
+        if signed_flag and not bracket_flag and \
+                (arithmetic_expression[index] in TWO_OPERANDS or
+                 arithmetic_expression[index] in OPENERS):
+            new_expression = new_expression.__add__(")")
+            signed_flag = False
+        new_expression = new_expression.__add__(arithmetic_expression[index])
         index += 1
-    if signed_flag:
+    while new_expression.count('(') != new_expression.count(')'):
         new_expression = new_expression.__add__(")")
     return new_expression
