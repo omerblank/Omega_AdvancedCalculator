@@ -1,5 +1,6 @@
 # module to show the user the calculator
 from Input.input_calculations import *
+from Input.input_features import *
 from Output.messages import *
 
 

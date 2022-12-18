@@ -9,3 +9,4 @@ OPERATORS_PRIORITY = {'(': 0, '+': 1, '-': 1, '*': 2, '/': 2, '^': 3, '%': 4, '$
 BRACKETS = ['(', ')']
 OPENERS = ['(']
 CLOSERS = [')']
+IGNORE = [' ', '\t', '\n']
