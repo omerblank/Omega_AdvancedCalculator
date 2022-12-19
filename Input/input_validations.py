@@ -77,16 +77,58 @@ def is_signed(arithmetic_expression: str, index: int) -> bool:
             (arithmetic_expression[index + 1] in OPENERS or arithmetic_expression[index + 1] in LEFT_UNARY
              or validate_right(arithmetic_expression[index + 1], minus)):
         return True
-    elif index < len(arithmetic_expression) - 1 and \
-            (arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] in OPENERS or
-             arithmetic_expression[index - 1] in LEFT_UNARY) and \
-            (arithmetic_expression[index + 1] in OPENERS or arithmetic_expression[index + 1] in LEFT_UNARY
-             or validate_right(arithmetic_expression[index + 1], minus)):
+    elif index < len(arithmetic_expression) - 1:
+        if arithmetic_expression[index - 1] in LEFT_UNARY and arithmetic_expression[index + 1] in LEFT_UNARY:
+            raise OperatorError(f"{arithmetic_expression[index - 1:index + 2]} sequence is illegal!")
+        if (arithmetic_expression[index - 1] in TWO_OPERANDS or arithmetic_expression[index - 1] in OPENERS or
+            arithmetic_expression[index - 1] in LEFT_UNARY) and \
+                (arithmetic_expression[index + 1] in OPENERS or arithmetic_expression[index + 1] in LEFT_UNARY
+                 or validate_right(arithmetic_expression[index + 1], minus)):
+            return True
+    return False
+
+
+def validate_tilda_in_minuses(arithmetic_expression: str, index: int) -> bool:
+    """
+    this function validates tildas sequence in a after or before minus
+    :param arithmetic_expression: the expression
+    :param index: the index
+    :return: True if the sequence is valid
+    """
+    count_tilda = 0
+    while index < len(arithmetic_expression) and \
+            (arithmetic_expression[index] == '~' or arithmetic_expression[index] == '-'):
+        if arithmetic_expression[index] == '~':
+            count_tilda += 1
+        if count_tilda > 1:
+            raise OperatorError("there is an illegal sequence of tildas!")
+        index += 1
+    return True
+
+
+def can_check_after(arithmetic_expression: str, index: int) -> bool:
+    """
+    the function checks if we can check the index after in the expression
+    :param arithmetic_expression: the expression
+    :param index: the index
+    :return: True if we can, else False
+    """
+    if index < len(arithmetic_expression) - 1:
         return True
     return False
 
 
-# todo make this function shorter!
+def can_check_before(index: int) -> bool:
+    """
+    the function checks if we can check the index before in the expression
+    :param index: the index
+    :return: True if we can, else False
+    """
+    if index > 0:
+        return True
+    return False
+
+
 def signed_operand(arithmetic_expression: str) -> str:
     """
     this function makes signed minuses in the expression calculable
@@ -95,38 +137,22 @@ def signed_operand(arithmetic_expression: str) -> str:
     """
     new_expression = ""
     index = 0
-    signed_flag, bracket_flag = False, False
     while index < len(arithmetic_expression):
-        if arithmetic_expression[index] == '-':
-            if is_signed(arithmetic_expression, index):
-                signed_flag = True
-                if index < len(arithmetic_expression) - 1 and arithmetic_expression[index + 1] == '~':
-                    if index == 0 or (index > 0 and not arithmetic_expression[index - 1] in LEFT_UNARY):
-                        index += 2
-                        signed_flag = False
-                        continue
-                else:
-                    new_expression = new_expression.__add__("(~")
-                index += 1
-                continue
-        if len(arithmetic_expression) - 1 > index > 0 and \
-                (not arithmetic_expression[index - 1].isdigit() and arithmetic_expression[index - 1] not in CLOSERS) and \
-                arithmetic_expression[index] == '~' and \
-                arithmetic_expression[index + 1] == '-':
+        if arithmetic_expression[index] == '-' and is_signed(arithmetic_expression, index):
+            if can_check_after(arithmetic_expression, index):
+                if arithmetic_expression[index + 1] in OPENERS or arithmetic_expression[index + 1].isdigit():
+                    new_expression += "~"
+                    index += 1
+                    continue
+                if arithmetic_expression[index + 1] == '~' and validate_tilda_in_minuses(arithmetic_expression, index):
+                    index += 2
+                    continue
+        if can_check_after(arithmetic_expression, index) and arithmetic_expression[
+            index] == '~' and validate_tilda_in_minuses(arithmetic_expression, index) and \
+                arithmetic_expression[index + 1] == '-' and is_signed(
+            arithmetic_expression, index + 1):
             index += 2
-            signed_flag = False
             continue
-        if arithmetic_expression[index] == '(':
-            bracket_flag = True
-        if arithmetic_expression[index] == ')':
-            bracket_flag = False
-        if signed_flag and not bracket_flag and \
-                (arithmetic_expression[index] in TWO_OPERANDS or
-                 arithmetic_expression[index] in OPENERS):
-            new_expression = new_expression.__add__(")")
-            signed_flag = False
         new_expression = new_expression.__add__(arithmetic_expression[index])
         index += 1
-    while signed_flag and new_expression.count('(') != new_expression.count(')'):
-        new_expression = new_expression.__add__(")")
     return new_expression

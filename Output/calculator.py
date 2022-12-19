@@ -52,6 +52,9 @@ def calculation(arithmetic_expression: str):
     except EmptyExpressionError as eee:
         print(f"Ω Invalid Expression Entered Ω\n(empty expression)\n{eee}")
         return eee
+    except OverflowError as ofe:
+        print(f"Ω Invalid Expression Entered Ω\n(the result is too large)\n{ofe}")
+        return ofe
 
 
 def calculator() -> None:

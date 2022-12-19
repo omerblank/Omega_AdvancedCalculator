@@ -16,7 +16,7 @@ def reduce_minuses(arithmetic_expression: str) -> str:
             count_minus += 1
         elif count_minus > 0:
             if count_minus % 2 == 0:
-                if before_minus.isdigit() or before_minus in CLOSERS:
+                if before_minus.isdigit() or before_minus in CLOSERS or before_minus in RIGHT_UNARY:
                     new_expression = new_expression.__add__('+' + arithmetic_expression[i])
                     before_minus = arithmetic_expression[i]
                 else:
