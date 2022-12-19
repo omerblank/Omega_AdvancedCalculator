@@ -1,10 +1,14 @@
 # module to allow the user to use the calculator
 
-from Output.calculator import *
 
 # todo: when finishing merge all to master including main.py!!!!!!!!!!!!!!!
 # calculator()
-calculation()
+from Output.calculator import calculation, get_expression_to_calculate, calculator
+
+# get_expression_to_calculate()
 # print(signed_operand(reduce_minuses("~-~3")))
-# print(calculate("5!#*3@1+(~1)^4+((2))*((4^(~2.00)))"))
+from Input.input_calculations import calculate
+
+# print(calculate("$"))
 # print(reduce_spaces("2+  3"))
+# calculator()

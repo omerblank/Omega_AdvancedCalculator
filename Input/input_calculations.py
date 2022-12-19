@@ -1,4 +1,5 @@
 # module for calculations on the input
+from Input.input_features import *
 from Input.input_validations import *
 from Operators.operators_classes import *
 
@@ -58,6 +59,10 @@ def calculate(arithmetic_expression: str) -> str:
     :param arithmetic_expression: the arithmetic expression
     :return: the result of the expression
     """
+    arithmetic_expression = reduce_spaces(arithmetic_expression)
+    arithmetic_expression = reduce_minuses(arithmetic_expression)
+    arithmetic_expression = signed_operand(arithmetic_expression)
+    validate_pre_calculation(arithmetic_expression)
     operands_stack = []
     operators_stack = []
     index = 0

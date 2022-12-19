@@ -3,6 +3,21 @@ from Brackets.brackets_classes import *
 from Operators.operators_classes import *
 
 
+def validate_pre_calculation(arithmetic_expression: str) -> None:
+    """
+    this function validates the expression before calculating it
+    :param arithmetic_expression: the expression
+    :return: None
+    """
+    if arithmetic_expression == "":
+        raise EmptyExpressionError("can't calculate an empty expression!")
+    if len(arithmetic_expression) == 1 and not arithmetic_expression[0].isdigit():
+        if arithmetic_expression[0] in OPERATORS:
+            raise OperandError("can't find operands!")
+        else:
+            raise UnidentifiedInputError(f"{arithmetic_expression[0]} is unidentified!")
+
+
 def validate_operator_in_expression(arithmetic_expression: str, index: int) -> None:
     """
     the function validates operator in the received expression
@@ -86,8 +101,7 @@ def signed_operand(arithmetic_expression: str) -> str:
             if is_signed(arithmetic_expression, index):
                 signed_flag = True
                 if index < len(arithmetic_expression) - 1 and arithmetic_expression[index + 1] == '~':
-                    if index > 0 and not arithmetic_expression[index - 1] in LEFT_UNARY:
-                        # new_expression = new_expression.__add__("~(")
+                    if index == 0 or (index > 0 and not arithmetic_expression[index - 1] in LEFT_UNARY):
                         index += 2
                         signed_flag = False
                         continue
@@ -113,6 +127,6 @@ def signed_operand(arithmetic_expression: str) -> str:
             signed_flag = False
         new_expression = new_expression.__add__(arithmetic_expression[index])
         index += 1
-    while new_expression.count('(') != new_expression.count(')'):
+    while signed_flag and new_expression.count('(') != new_expression.count(')'):
         new_expression = new_expression.__add__(")")
     return new_expression
