@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:development" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="39d6d062-1b12-4d00-ac12-f71722e684bd" name="Default Changelist" comment="Removing todos, this is the real last commit..." />
+    <list id="f63696b6-cde1-446c-b13d-d4a8172c806a" name="adding input validations" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Hfku0VEWMRtOlpkGFnUIxa7MSH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Networks\omegaCalculator\InputCalculation" />
+      <recent name="C:\Networks\omegaCalculator\MyConstantsAndExceptions" />
+      <recent name="C:\Networks\omegaCalculator\Operators" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="omegaCalculator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="omegaCalculator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="omegaCalculator" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="omegaCalculator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Networks\Python\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="omegaCalculator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in tests.py" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="omegaCalculator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Networks\Python\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.check" />
+      <item itemvalue="Python.omegaCalculator" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.tests" />
+      <item itemvalue="Python tests.pytest in tests.py" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="39d6d062-1b12-4d00-ac12-f71722e684bd" name="Default Changelist" comment="" />
+      <changelist id="f63696b6-cde1-446c-b13d-d4a8172c806a" name="adding input validations" comment="" />
+      <created>1668683743660</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668683743660</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Operators and their functions">
+      <created>1668697808723</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668697808723</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Checking development branch is not effecting on master">
+      <created>1668698177862</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668698177862</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Delete check! comment">
+      <created>1668698321640</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668698321640</updated>
+    </task>
+    <task id="LOCAL-00004" summary="init input checking module, my exceptions classes">
+      <created>1668705075157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668705075157</updated>
+    </task>
+    <task id="LOCAL-00005" summary="creating OperatorError, OperandError classes, finishing parenthesis handling, and starting operands and operators handling.">
+      <created>1668790804195</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668790804195</updated>
+    </task>
+    <task id="LOCAL-00006" summary="creating global variables, changing pre_calculation function, adding minus reducing function, starting calcukate function">
+      <created>1668802832793</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668802832793</updated>
+    </task>
+    <task id="LOCAL-00007" summary="creating calculations.py - for calculating by operators, validations.py - for validating by operators, my_operators.py - for calculating by operators belonging only to the Omega calculator&#10;&#10;and changing operators.py according to SOLID principle">
+      <created>1669066498607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669066498607</updated>
+    </task>
+    <task id="LOCAL-00008" summary="deleting unnecessary imports from operators.py">
+      <created>1669066663779</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669066663779</updated>
+    </task>
+    <task id="LOCAL-00009" summary="creating constants.py - a module for constants&#10;uppercase constants names">
+      <created>1669066989244</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669066989244</updated>
+    </task>
+    <task id="LOCAL-00010" summary="creating validity method for each operator on validations.py, changing the validity check for each operator on operators.py to a more generic version">
+      <created>1669067907842</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669067907842</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adding comments to calculations.py and validations.py, adding OPERATIONS constant to constants.py">
+      <created>1669073587053</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669073587053</updated>
+    </task>
+    <task id="LOCAL-00012" summary="working calculation function except for handling negative operands, creating packages for easy access and aesthetics">
+      <created>1669396561726</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669396561726</updated>
+    </task>
+    <task id="LOCAL-00013" summary="adding digits sum operator to the system ('#')">
+      <created>1669903865871</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669903865871</updated>
+    </task>
+    <task id="LOCAL-00014" summary="adding input validations">
+      <created>1669916798896</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669916798896</updated>
+    </task>
+    <task id="LOCAL-00015" summary="adding input validations">
+      <created>1670527877829</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670527877829</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixing minuses reducing function, adding spaces reducing function, and a function to identify minus signed operand or subtraction operation">
+      <created>1670528179927</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670528179927</updated>
+    </task>
+    <task id="LOCAL-00017" summary="new working minus reducing function, i chose way 2.">
+      <created>1670924003662</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670924003662</updated>
+    </task>
+    <task id="LOCAL-00018" summary="minus reducing function is finally working.&#10;uniting modules to prevent circular importing.&#10;adding constants.">
+      <created>1671051087868</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671051087868</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Adding Output package.">
+      <created>1671128621130</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671128621131</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Adding comments in Output package.">
+      <created>1671129551678</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671129551678</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Returning the validation modules for a more readable code, without the circular import issue of course.&#10;Adding comments to the title of each module.">
+      <created>1671132899388</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1671132899388</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fixing signed minuses function.&#10;Adding comments to the whole project.&#10;Handling exceptions in the function that gets the input from the user.">
+      <created>1671201457363</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1671201457363</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adding comments for classes&#10;Fixing signed_operand function&#10;Removing validations for each operator in operators_validations (because it was unnecessary)">
+      <created>1671398182826</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1671398182826</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Fixing spaces removing function and adding constant for chars the calculator ignores.">
+      <created>1671398849004</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1671398849004</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Fixing signed_operand function&#10;Initializing tests module for checks.">
+      <created>1671433413361</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1671433413361</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Fixing signed_operand function again.">
+      <created>1671435650634</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1671435650634</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Fixing signed_operand function again.">
+      <created>1671435725589</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1671435725589</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Adding tests for pytest module.&#10;fixing minus_operand function again...">
+      <created>1671447436663</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1671447436664</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Last commit, Adding tests.&#10;Adding tilda validation function, main.py is ready for user, enjoy!">
+      <created>1671475270910</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1671475270910</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Removing todos, this is the real last commit...">
+      <created>1671475322960</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1671475322960</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="development" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init input checking module, my exceptions classes" />
+    <MESSAGE value="creating OperatorError, OperandError classes, finishing parenthesis handling, and starting operands and operators handling." />
+    <MESSAGE value="creating global variables, changing pre_calculation function, adding minus reducing function, starting calcukate function" />
+    <MESSAGE value="creating calculations.py - for calculating by operators, validations.py - for validating by operators, my_operators.py - for calculating by operators belonging only to the Omega calculator&#10;&#10;and changing operators.py according to SOLID principle" />
+    <MESSAGE value="deleting unnecessary imports from operators.py" />
+    <MESSAGE value="creating constants.py - a module for constants&#10;uppercase constants names" />
+    <MESSAGE value="creating validity method for each operator on validations.py, changing the validity check for each operator on operators.py to a more generic version" />
+    <MESSAGE value="adding comments to calculations.py and validations.py, adding OPERATIONS constant to constants.py" />
+    <MESSAGE value="working calculation function except for handling negative operands, creating packages for easy access and aesthetics" />
+    <MESSAGE value="adding digits sum operator to the system ('#')" />
+    <MESSAGE value="adding input validations" />
+    <MESSAGE value="fixing minuses reducing function, adding spaces reducing function, and a function to identify minus signed operand or subtraction operation" />
+    <MESSAGE value="new working minus reducing function, i chose way 2." />
+    <MESSAGE value="minus reducing function is finally working.&#10;uniting modules to prevent circular importing.&#10;adding constants." />
+    <MESSAGE value="Adding Output package." />
+    <MESSAGE value="Adding comments in Output package." />
+    <MESSAGE value="Returning the validation modules for a more readable code, without the circular import issue of course.&#10;Adding comments to the title of each module." />
+    <MESSAGE value="Fixing signed minuses function.&#10;Adding comments to the whole project.&#10;Handling exceptions in the function that gets the input from the user." />
+    <MESSAGE value="Adding comments for classes&#10;Fixing signed_operand function&#10;Removing validations for each operator in operators_validations (because it was unnecessary)" />
+    <MESSAGE value="Fixing spaces removing function and adding constant for chars the calculator ignores." />
+    <MESSAGE value="Fixing signed_operand function&#10;Initializing tests module for checks." />
+    <MESSAGE value="Fixing signed_operand function again." />
+    <MESSAGE value="Adding tests for pytest module.&#10;fixing minus_operand function again..." />
+    <MESSAGE value="Last commit, Adding tests.&#10;Adding tilda validation function, main.py is ready for user, enjoy!" />
+    <MESSAGE value="Removing todos, this is the real last commit..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing todos, this is the real last commit..." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1671445248365">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.672@0.0.1280.672" timestamp="1671445248365" />
+    <state x="234" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1669911933124">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="234" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.672@0.0.1280.672" timestamp="1669911933124" />
+    <state x="371" y="84" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1670525351804">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="371" y="84" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.672@0.0.1280.672" timestamp="1670525351804" />
+    <state x="421" y="92" key="FileChooserDialogImpl" timestamp="1671445245451">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1671445245451" />
+    <state width="1259" height="201" key="GridCell.Tab.0.bottom" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.0.bottom/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.0.center" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.0.center/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.0.left" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.0.left/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.0.right" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.1.bottom" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.1.bottom/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.1.center" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.1.center/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.1.left" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.1.left/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="201" key="GridCell.Tab.1.right" timestamp="1671475391027">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state width="1259" height="201" key="GridCell.Tab.1.right/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1671445168670">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.672@0.0.1280.672" timestamp="1671445168670" />
+    <state x="490" y="250" key="VCS.ChangelistChooser" timestamp="1670528046838">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="490" y="250" key="VCS.ChangelistChooser/0.0.1280.672@0.0.1280.672" timestamp="1670528046838" />
+    <state x="233" y="70" key="Vcs.Push.Dialog.v2" timestamp="1671475325969">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="233" y="70" key="Vcs.Push.Dialog.v2/0.0.1280.672@0.0.1280.672" timestamp="1671475325969" />
+    <state x="458" y="251" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1671128157396">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="458" y="251" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.672@0.0.1280.672" timestamp="1671128157396" />
+    <state x="122" y="102" width="1068" height="430" key="dock-window-1" timestamp="1670842157612">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="122" y="102" width="1068" height="430" key="dock-window-1/0.0.1280.672@0.0.1280.672" timestamp="1670842157612" />
+    <state x="347" y="69" width="587" height="534" key="find.popup" timestamp="1668684735349">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="347" y="69" width="587" height="534" key="find.popup/0.0.1280.672@0.0.1280.672" timestamp="1668684735349" />
+    <state x="443" y="243" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1668697563119">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="443" y="243" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1280.672@0.0.1280.672" timestamp="1668697563119" />
+    <state x="484" y="122" key="refactoring.ChangeSignatureDialog" timestamp="1671044773172">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="484" y="122" key="refactoring.ChangeSignatureDialog/0.0.1280.672@0.0.1280.672" timestamp="1671044773172" />
+    <state x="303" y="0" width="672" height="678" key="search.everywhere.popup" timestamp="1671441705266">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="303" y="0" width="672" height="678" key="search.everywhere.popup/0.0.1280.672@0.0.1280.672" timestamp="1671441705266" />
+  </component>
+</project>
