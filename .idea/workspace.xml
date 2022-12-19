@@ -68,7 +68,7 @@
       <recent name="C:\Networks\omegaCalculator\Operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.pytest in tests.py">
     <configuration name="check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="omegaCalculator" />
       <option name="INTERPRETER_OPTIONS" value="" />
