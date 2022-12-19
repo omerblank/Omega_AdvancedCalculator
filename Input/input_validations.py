@@ -85,11 +85,12 @@ def signed_operand(arithmetic_expression: str) -> str:
         if arithmetic_expression[index] == '-':
             if is_signed(arithmetic_expression, index):
                 signed_flag = True
-                if index < len(arithmetic_expression) - 1 and arithmetic_expression[index + 1] in LEFT_UNARY:
-                    # new_expression = new_expression.__add__("~(")
-                    index += 2
-                    signed_flag = False
-                    continue
+                if index < len(arithmetic_expression) - 1 and arithmetic_expression[index + 1] == '~':
+                    if index > 0 and not arithmetic_expression[index - 1] in LEFT_UNARY:
+                        # new_expression = new_expression.__add__("~(")
+                        index += 2
+                        signed_flag = False
+                        continue
                 else:
                     new_expression = new_expression.__add__("(~")
                 index += 1

@@ -20,7 +20,9 @@ def digits_to_number(arithmetic_expression: str, index: int) -> (float, int):
         number += arithmetic_expression[index + 1]
         index += 1
     if index < len(arithmetic_expression) - 1 and arithmetic_expression[index] == '.':
-        raise OperandError(". can't end an operand")
+        raise OperandError(f"{number} is an illegal operand,. can't end an operand")
+    if number.count('.') > 1:
+        raise OperandError(f"{number} is an illegal operand, it has more than one dot")
     if number.isdigit():
         return int(number), index
     return float(number), index
