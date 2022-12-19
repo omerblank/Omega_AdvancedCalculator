@@ -1,3 +1,4 @@
+# module for features of the calculator on the input
 from ConstantsAndExceptions.constants import *
 
 

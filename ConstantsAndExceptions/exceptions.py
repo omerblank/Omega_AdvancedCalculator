@@ -18,6 +18,7 @@ class OperatorError(Exception):
         return self.message
 
 
+# exception for unidentified input errors
 class UnidentifiedInputError(Exception):
     def __init__(self, message):
         self.message = message
@@ -26,6 +27,7 @@ class UnidentifiedInputError(Exception):
         return self.message
 
 
+# exception for operand errors
 class OperandError(Exception):
     def __init__(self, message):
         self.message = message
@@ -34,6 +36,7 @@ class OperandError(Exception):
         return self.message
 
 
+# exception for empty expression errors
 class EmptyExpressionError(Exception):
     def __init__(self, message):
         self.message = message

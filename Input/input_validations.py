@@ -148,8 +148,7 @@ def signed_operand(arithmetic_expression: str) -> str:
                     continue
         if can_check_after(arithmetic_expression, index) and arithmetic_expression[
             index] == '~' and validate_tilda_in_minuses(arithmetic_expression, index) and \
-                arithmetic_expression[index + 1] == '-' and is_signed(
-            arithmetic_expression, index + 1):
+                arithmetic_expression[index + 1] == '-' and is_signed(arithmetic_expression, index + 1):
             index += 2
             continue
         new_expression = new_expression.__add__(arithmetic_expression[index])

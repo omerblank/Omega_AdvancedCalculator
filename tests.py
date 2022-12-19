@@ -4,6 +4,8 @@ from Output.calculator import calculation
 from Input.input_calculations import calculate
 
 
+# module for tests
+
 def test_simple_errors():
     exception = calculation("(2+3))")
     assert isinstance(exception, BracketsError)

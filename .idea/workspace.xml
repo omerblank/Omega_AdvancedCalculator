@@ -23,12 +23,14 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:development" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d6d062-1b12-4d00-ac12-f71722e684bd" name="Default Changelist" comment="Removing todos, this is the real last commit..." />
+    <list default="true" id="39d6d062-1b12-4d00-ac12-f71722e684bd" name="Default Changelist" comment="Merging Development into Master, final commit and push.">
+      <change beforePath="$PROJECT_DIR$/operators.py" beforeDir="false" />
+    </list>
     <list id="f63696b6-cde1-446c-b13d-d4a8172c806a" name="adding input validations" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,8 +180,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tests" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.tests" />
         <item itemvalue="Python.tests" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main" />
@@ -406,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671475322960</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Merging Development into Master, final commit and push.">
+      <created>1671475987807</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1671475987807</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +429,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="development" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -434,7 +443,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init input checking module, my exceptions classes" />
     <MESSAGE value="creating OperatorError, OperandError classes, finishing parenthesis handling, and starting operands and operators handling." />
     <MESSAGE value="creating global variables, changing pre_calculation function, adding minus reducing function, starting calcukate function" />
     <MESSAGE value="creating calculations.py - for calculating by operators, validations.py - for validating by operators, my_operators.py - for calculating by operators belonging only to the Omega calculator&#10;&#10;and changing operators.py according to SOLID principle" />
@@ -459,7 +467,8 @@
     <MESSAGE value="Adding tests for pytest module.&#10;fixing minus_operand function again..." />
     <MESSAGE value="Last commit, Adding tests.&#10;Adding tilda validation function, main.py is ready for user, enjoy!" />
     <MESSAGE value="Removing todos, this is the real last commit..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing todos, this is the real last commit..." />
+    <MESSAGE value="Merging Development into Master, final commit and push." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merging Development into Master, final commit and push." />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1671445248365">
@@ -478,22 +487,22 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1671445245451" />
-    <state width="1259" height="201" key="GridCell.Tab.0.bottom" timestamp="1671475391027">
+    <state width="1259" height="141" key="GridCell.Tab.0.bottom" timestamp="1671476253022">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="1259" height="201" key="GridCell.Tab.0.bottom/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
-    <state width="1259" height="201" key="GridCell.Tab.0.center" timestamp="1671475391027">
+    <state width="1259" height="141" key="GridCell.Tab.0.bottom/0.0.1280.672@0.0.1280.672" timestamp="1671476253022" />
+    <state width="1259" height="141" key="GridCell.Tab.0.center" timestamp="1671476253022">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="1259" height="201" key="GridCell.Tab.0.center/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
-    <state width="1259" height="201" key="GridCell.Tab.0.left" timestamp="1671475391027">
+    <state width="1259" height="141" key="GridCell.Tab.0.center/0.0.1280.672@0.0.1280.672" timestamp="1671476253022" />
+    <state width="1259" height="141" key="GridCell.Tab.0.left" timestamp="1671476253022">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="1259" height="201" key="GridCell.Tab.0.left/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
-    <state width="1259" height="201" key="GridCell.Tab.0.right" timestamp="1671475391027">
+    <state width="1259" height="141" key="GridCell.Tab.0.left/0.0.1280.672@0.0.1280.672" timestamp="1671476253022" />
+    <state width="1259" height="141" key="GridCell.Tab.0.right" timestamp="1671476253022">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state width="1259" height="201" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state width="1259" height="141" key="GridCell.Tab.0.right/0.0.1280.672@0.0.1280.672" timestamp="1671476253022" />
     <state width="1259" height="201" key="GridCell.Tab.1.bottom" timestamp="1671475391027">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
@@ -510,6 +519,14 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state width="1259" height="201" key="GridCell.Tab.1.right/0.0.1280.672@0.0.1280.672" timestamp="1671475391027" />
+    <state x="121" y="50" key="MergeDialog" timestamp="1671475854707">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="121" y="50" key="MergeDialog/0.0.1280.672@0.0.1280.672" timestamp="1671475854707" />
+    <state x="280" y="98" key="MultipleFileMergeDialog" timestamp="1671475854713">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="280" y="98" key="MultipleFileMergeDialog/0.0.1280.672@0.0.1280.672" timestamp="1671475854713" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1671445168670">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
@@ -518,10 +535,10 @@
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="490" y="250" key="VCS.ChangelistChooser/0.0.1280.672@0.0.1280.672" timestamp="1670528046838" />
-    <state x="233" y="70" key="Vcs.Push.Dialog.v2" timestamp="1671475325969">
+    <state x="233" y="70" key="Vcs.Push.Dialog.v2" timestamp="1671476063905">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
-    <state x="233" y="70" key="Vcs.Push.Dialog.v2/0.0.1280.672@0.0.1280.672" timestamp="1671475325969" />
+    <state x="233" y="70" key="Vcs.Push.Dialog.v2/0.0.1280.672@0.0.1280.672" timestamp="1671476063905" />
     <state x="458" y="251" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1671128157396">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
