@@ -12,7 +12,7 @@ def validate_operator_in_expression(arithmetic_expression: str, index: int) -> N
     """
     operator = arithmetic_expression[index]
     if operator not in OPERATORS:
-        raise ValueError(f"{operator} is unidentified!")
+        raise UnidentifiedInputError(f"{operator} is unidentified!")
     elif index == 0:
         if (OPERATORS_AND_CLASSES.get(operator).__base__ == TwoOperands) or operator in RIGHT_UNARY:
             raise OperatorError(f"{operator} can't open an expression!")
@@ -36,7 +36,7 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int) -> No
     if arithmetic_expression.count('(') != arithmetic_expression.count(')'):
         raise BracketsError("'(' and ')' amount should be equal!")
     if arithmetic_expression[:index + 1].count('(') < arithmetic_expression[:index + 1].count(')'):
-        raise BracketsError("missing '('")
+        raise BracketsError(") can't come before (")
     if index == 0:
         if bracket == ')':
             raise BracketsError(f"{bracket} can't open an expression!")
@@ -94,7 +94,9 @@ def signed_operand(arithmetic_expression: str) -> str:
                     new_expression = new_expression.__add__("(~")
                 index += 1
                 continue
-        if index < len(arithmetic_expression) - 1 and arithmetic_expression[index] in LEFT_UNARY and \
+        if len(arithmetic_expression) - 1 > index > 0 and \
+                (not arithmetic_expression[index - 1].isdigit() and arithmetic_expression[index - 1] not in CLOSERS) and \
+                arithmetic_expression[index] == '~' and \
                 arithmetic_expression[index + 1] == '-':
             index += 2
             signed_flag = False

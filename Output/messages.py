@@ -1,4 +1,5 @@
 # module to show the user messages while he is using the calculator
+from Input.input_features import *
 from Input.input_validations import *
 
 

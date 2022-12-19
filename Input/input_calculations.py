@@ -19,6 +19,8 @@ def digits_to_number(arithmetic_expression: str, index: int) -> (float, int):
                                                        arithmetic_expression[index + 1] == '.'):
         number += arithmetic_expression[index + 1]
         index += 1
+    if index < len(arithmetic_expression) - 1 and arithmetic_expression[index] == '.':
+        raise OperandError(". can't end an operand")
     if number.isdigit():
         return int(number), index
     return float(number), index

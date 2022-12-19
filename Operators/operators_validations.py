@@ -1,6 +1,6 @@
 # module for operators validations
 from ConstantsAndExceptions.constants import *
-from ConstantsAndExceptions.exceptions import OperatorError
+from ConstantsAndExceptions.exceptions import *
 
 
 def validate_left(operand: str, operator) -> bool:

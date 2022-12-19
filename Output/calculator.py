@@ -33,6 +33,10 @@ def calculation() -> None:
         print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{oe}")
     except BracketsError as be:
         print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{be}")
+    except UnidentifiedInputError as uie:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{uie}")
+    except OperandError as ope:
+        print(f"Ω Invalid Expression Entered Ω\n{arithmetic_expression}\n{ope}")
     finally:
         make_a_choice('c', "CONTINUE", calculation)
 

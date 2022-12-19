@@ -1,6 +1,6 @@
 # module for brackets validations
 from ConstantsAndExceptions.constants import *
-from ConstantsAndExceptions.exceptions import BracketsError
+from ConstantsAndExceptions.exceptions import *
 
 
 def validate_round_opener(left, right) -> None:
