@@ -64,7 +64,6 @@ def validate_bracket_in_expression(arithmetic_expression: str, index: int) -> No
         BRACKETS_AND_CLASSES.get(bracket)(arithmetic_expression[index - 1], arithmetic_expression[index + 1])
 
 
-# todo: fix this function!
 def is_signed(arithmetic_expression: str, index: int) -> bool:
     """
     this function checks if a minus is a sign or an operator

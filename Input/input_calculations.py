@@ -61,7 +61,6 @@ def calculate(arithmetic_expression: str) -> str:
     """
     arithmetic_expression = reduce_spaces(arithmetic_expression)
     arithmetic_expression = reduce_minuses(arithmetic_expression)
-    # todo: fix the signed operand function!
     arithmetic_expression = signed_operand(arithmetic_expression)
     validate_pre_calculation(arithmetic_expression)
     operands_stack = []
